@@ -5,8 +5,10 @@
 [Bb]uild/
 [Ll]ibrary/
 [Ll]ocal[Cc]ache/
+[Ll]ogs/
 [Oo]bj/
 [Tt]emp/
+[Uu]ser[Ss]ettings/
 [Uu]nityGenerated/
 # file on crash reports
 sysinfo.txt
