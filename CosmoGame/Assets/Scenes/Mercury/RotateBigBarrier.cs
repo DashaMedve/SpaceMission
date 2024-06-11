@@ -19,7 +19,7 @@ public class RotateBigBarrier : MonoBehaviour
         if (state)
         {
             if (transform.position.x - create.transform.position.x < 90)
-                transform.position += new Vector3(2f, 0, 0);
+                transform.position += new Vector3(1f, 0, 0);
             else
             {
                 state = false;
@@ -29,7 +29,7 @@ public class RotateBigBarrier : MonoBehaviour
         else
         {
             if (transform.position.x - create.transform.position.x > -90)
-                transform.position -= new Vector3(2f, 0, 0);
+                transform.position -= new Vector3(1f, 0, 0);
             else
             {
                 state = true;
