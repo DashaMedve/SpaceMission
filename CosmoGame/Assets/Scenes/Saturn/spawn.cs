@@ -10,7 +10,7 @@ public class spawn : MonoBehaviour
     // Start is called before the first frame update
     public GameObject[] enemyPrefab;
     private bool creat = false;
-    public float timeSpawn = 6f;
+    public float timeSpawn = 4f;
     private float timer;
     private System.Random rnrd = new System.Random();
     // Start is called before the first frame update
@@ -25,7 +25,7 @@ public class spawn : MonoBehaviour
         timer -= Time.deltaTime;
 
         Collider Collider;
-        if (timer <= 3)
+        if (timer <= 2)
         {
             if (!creat)
             {
@@ -35,7 +35,7 @@ public class spawn : MonoBehaviour
                 star.transform.localScale = new Vector3(5.0f, 5.0f, 5.0f);
                 star.AddComponent<Star>();
                 star.AddComponent<BoxCollider>();
-                star.AddComponent<rotatebarrier>();
+                star.AddComponent<create>();
                 Collider = star.GetComponent<BoxCollider>();
                 Collider.isTrigger = true;
                 creat = true;
@@ -46,6 +46,14 @@ public class spawn : MonoBehaviour
             timer = timeSpawn;
             var randomx = rnrd.Next(-150, 150);
             var randomy = rnrd.Next(-34, 34);
+            star = Instantiate(enemyPrefab[1], transform.position + new Vector3(randomx, randomy, 0), Quaternion.identity);
+            star.transform.localScale = new Vector3(10.0f, 10.0f, 10.0f);
+            star.transform.Rotate(-253.5f, 0.6f, 0, 0);
+            star.AddComponent<Ring>();
+            star.AddComponent<BoxCollider>();
+            star.AddComponent<create>();
+            Collider = star.GetComponent<BoxCollider>();
+            Collider.isTrigger = true;
             creat = false;
         }
     }
