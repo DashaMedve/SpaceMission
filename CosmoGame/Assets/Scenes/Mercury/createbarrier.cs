@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,16 +7,16 @@ using UnityEngine.UIElements;
 
 public class createbarrier : MonoBehaviour
 {
-    public GameObject[] enemyPrefab; // Шаблоны объектов для генерации
-    public float timeSpawn; // Интервал времени между созданием объектов
+    public GameObject[] enemyPrefab; // РЁР°Р±Р»РѕРЅС‹ РѕР±СЉРµРєС‚РѕРІ РґР»СЏ РіРµРЅРµСЂР°С†РёРё
+    public float timeSpawn; // РРЅС‚РµСЂРІР°Р» РІСЂРµРјРµРЅРё РјРµР¶РґСѓ СЃРѕР·РґР°РЅРёРµРј РѕР±СЉРµРєС‚РѕРІ
 
-    private GameObject star1; // Переменная для хранения звезды
-    private GameObject star2; // Переменная для хранения звезды
-    private bool creat; // Переменная для проверки создались ли звёзды в определённой промежуток времени
-    private float timer; // Таймер считающий от timeSpawn до 0
+    private GameObject star1; // РџРµСЂРµРјРµРЅРЅР°СЏ РґР»СЏ С…СЂР°РЅРµРЅРёСЏ Р·РІРµР·РґС‹
+    private GameObject star2; // РџРµСЂРµРјРµРЅРЅР°СЏ РґР»СЏ С…СЂР°РЅРµРЅРёСЏ Р·РІРµР·РґС‹
+    private bool creat; // РџРµСЂРµРјРµРЅРЅР°СЏ РґР»СЏ РїСЂРѕРІРµСЂРєРё СЃРѕР·РґР°Р»РёСЃСЊ Р»Рё Р·РІС‘Р·РґС‹ РІ РѕРїСЂРµРґРµР»С‘РЅРЅРѕР№ РїСЂРѕРјРµР¶СѓС‚РѕРє РІСЂРµРјРµРЅРё
+    private float timer; // РўР°Р№РјРµСЂ СЃС‡РёС‚Р°СЋС‰РёР№ РѕС‚ timeSpawn РґРѕ 0
 
     /**
-     * Инициализация переменных класса
+     * РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РїРµСЂРµРјРµРЅРЅС‹С… РєР»Р°СЃСЃР°
      **/
     void Start()
     {
@@ -26,39 +26,39 @@ public class createbarrier : MonoBehaviour
     }
 
     /**
-     * Создание объекта "Star"
+     * РЎРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚Р° "Star"
      * 
-     * @param star - переменная в которой будет создаваться новый объект "Star"
-     * @param position - вектор координат нового объекта "Star"
+     * @param star - РїРµСЂРµРјРµРЅРЅР°СЏ РІ РєРѕС‚РѕСЂРѕР№ Р±СѓРґРµС‚ СЃРѕР·РґР°РІР°С‚СЊСЃСЏ РЅРѕРІС‹Р№ РѕР±СЉРµРєС‚ "Star"
+     * @param position - РІРµРєС‚РѕСЂ РєРѕРѕСЂРґРёРЅР°С‚ РЅРѕРІРѕРіРѕ РѕР±СЉРµРєС‚Р° "Star"
      **/
     void init_star(GameObject star, Vector3 position)
     {
-        Collider Collider; // Создание коллайдера
-        star = Instantiate(enemyPrefab[3], position, Quaternion.identity); // Создание объекта "Star"
-        star.transform.localScale = new Vector3(15f, 15f, 15f); // Изменение размера объекта "Star"
-        star.AddComponent<rotatebarrier>(); // Добавления компонента "rotatebarrier" к объекту "Star"
-        star.AddComponent<Star>(); // Добавление компонента "Star" к объекту "Star"
-        star.AddComponent<BoxCollider>(); // Добавление компонента "BoxCollider" к объекту "Star"
+        Collider Collider; // РЎРѕР·РґР°РЅРёРµ РєРѕР»Р»Р°Р№РґРµСЂР°
+        star = Instantiate(enemyPrefab[3], position, Quaternion.identity); // РЎРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚Р° "Star"
+        star.transform.localScale = new Vector3(15f, 15f, 15f); // РР·РјРµРЅРµРЅРёРµ СЂР°Р·РјРµСЂР° РѕР±СЉРµРєС‚Р° "Star"
+        star.AddComponent<rotatebarrier>(); // Р”РѕР±Р°РІР»РµРЅРёСЏ РєРѕРјРїРѕРЅРµРЅС‚Р° "rotatebarrier" Рє РѕР±СЉРµРєС‚Сѓ "Star"
+        star.AddComponent<Star>(); // Р”РѕР±Р°РІР»РµРЅРёРµ РєРѕРјРїРѕРЅРµРЅС‚Р° "Star" Рє РѕР±СЉРµРєС‚Сѓ "Star"
+        star.AddComponent<BoxCollider>(); // Р”РѕР±Р°РІР»РµРЅРёРµ РєРѕРјРїРѕРЅРµРЅС‚Р° "BoxCollider" Рє РѕР±СЉРµРєС‚Сѓ "Star"
         Collider = star.GetComponent<BoxCollider>();
-        Collider.isTrigger = true; // Изменение режима коллайдера
+        Collider.isTrigger = true; // РР·РјРµРЅРµРЅРёРµ СЂРµР¶РёРјР° РєРѕР»Р»Р°Р№РґРµСЂР°
     }
 
     /**
-     * Обновление кадра
+     * РћР±РЅРѕРІР»РµРЅРёРµ РєР°РґСЂР°
      **/
     void Update()
     {
-        timer -= Time.deltaTime; // Изменение значения таймера
-        System.Random random_generator1 = new System.Random(); // Создание объекта, генерирующего случайные значения
-        System.Random random_generator2 = new System.Random(); // Создание объекта, генерирующего случайные значения
-        if (timer <= 3) // Условие для того, чтобы звёзды не столкнулись с барьером
+        timer -= Time.deltaTime; // РР·РјРµРЅРµРЅРёРµ Р·РЅР°С‡РµРЅРёСЏ С‚Р°Р№РјРµСЂР°
+        System.Random random_generator1 = new System.Random(); // РЎРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚Р°, РіРµРЅРµСЂРёСЂСѓСЋС‰РµРіРѕ СЃР»СѓС‡Р°Р№РЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ
+        System.Random random_generator2 = new System.Random(); // РЎРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚Р°, РіРµРЅРµСЂРёСЂСѓСЋС‰РµРіРѕ СЃР»СѓС‡Р°Р№РЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ
+        if (timer <= 3) // РЈСЃР»РѕРІРёРµ РґР»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ Р·РІС‘Р·РґС‹ РЅРµ СЃС‚РѕР»РєРЅСѓР»РёСЃСЊ СЃ Р±Р°СЂСЊРµСЂРѕРј
         {
-            if (!creat) // Условие для создания только один раз за один timer
+            if (!creat) // РЈСЃР»РѕРІРёРµ РґР»СЏ СЃРѕР·РґР°РЅРёСЏ С‚РѕР»СЊРєРѕ РѕРґРёРЅ СЂР°Р· Р·Р° РѕРґРёРЅ timer
             {
-                var random_spawn_star = random_generator2.Next(0, 3); // Генерация индекса дороги
+                var random_spawn_star = random_generator2.Next(0, 3); // Р“РµРЅРµСЂР°С†РёСЏ РёРЅРґРµРєСЃР° РґРѕСЂРѕРіРё
                 Vector3 position1, position2;
                 int pos = 0;
-                for (int i = 0; i < 3; i++) // На дороге random_spawn_star создаётся три раза по две звезды
+                for (int i = 0; i < 3; i++) // РќР° РґРѕСЂРѕРіРµ random_spawn_star СЃРѕР·РґР°С‘С‚СЃСЏ С‚СЂРё СЂР°Р·Р° РїРѕ РґРІРµ Р·РІРµР·РґС‹
                 {
                     if (random_spawn_star == 0)
                     {
@@ -77,17 +77,17 @@ public class createbarrier : MonoBehaviour
                     }
                     init_star(star1, position1);
                     init_star(star2, position2);
-                    pos -= 350; // Изменение переменной, задающей позицию звёзд 
+                    pos -= 350; // РР·РјРµРЅРµРЅРёРµ РїРµСЂРµРјРµРЅРЅРѕР№, Р·Р°РґР°СЋС‰РµР№ РїРѕР·РёС†РёСЋ Р·РІС‘Р·Рґ 
                 }
                 creat = true;
             }
         }
-        if (timer <= 0) // Если timer досчитал до 0
+        if (timer <= 0) // Р•СЃР»Рё timer РґРѕСЃС‡РёС‚Р°Р» РґРѕ 0
         {
-            timer = timeSpawn; // Запуск таймера сначала
-            var random = random_generator1.Next(0,3); // Генерация случайного индекса для генерации препятствия
+            timer = timeSpawn; // Р—Р°РїСѓСЃРє С‚Р°Р№РјРµСЂР° СЃРЅР°С‡Р°Р»Р°
+            var random = random_generator1.Next(0,3); // Р“РµРЅРµСЂР°С†РёСЏ СЃР»СѓС‡Р°Р№РЅРѕРіРѕ РёРЅРґРµРєСЃР° РґР»СЏ РіРµРЅРµСЂР°С†РёРё РїСЂРµРїСЏС‚СЃС‚РІРёСЏ
 
-            // Генерация трёх объектов Downbarrier
+            // Р“РµРЅРµСЂР°С†РёСЏ С‚СЂС‘С… РѕР±СЉРµРєС‚РѕРІ Downbarrier
             if (random == 0)
             {
                 Instantiate(enemyPrefab[0], transform.position + new Vector3(0, -8, 0), Quaternion.identity);
@@ -98,12 +98,12 @@ public class createbarrier : MonoBehaviour
             else if (random == 1)
             {
                 List<int> road = new List<int>() { 0, 1, 2 };
-                var randomroad1 = random_generator1.Next(0, 3); // Генерация индекса дороги
+                var randomroad1 = random_generator1.Next(0, 3); // Р“РµРЅРµСЂР°С†РёСЏ РёРЅРґРµРєСЃР° РґРѕСЂРѕРіРё
                 road.RemoveAt(randomroad1);
-                var randomroad2 = random_generator1.Next(0, 2); // Генерация индекса дороги
+                var randomroad2 = random_generator1.Next(0, 2); // Р“РµРЅРµСЂР°С†РёСЏ РёРЅРґРµРєСЃР° РґРѕСЂРѕРіРё
                 road.RemoveAt(randomroad2);
 
-                // Генерация двух объектов "asteroid"
+                // Р“РµРЅРµСЂР°С†РёСЏ РґРІСѓС… РѕР±СЉРµРєС‚РѕРІ "asteroid"
                 if (road[0] == 0)
                 {
                     Instantiate(enemyPrefab[1], transform.position + new Vector3(0, 70, 0), Quaternion.identity);
@@ -123,7 +123,7 @@ public class createbarrier : MonoBehaviour
                 }
             }
 
-            // Генерация объекта "BigBarrier"
+            // Р“РµРЅРµСЂР°С†РёСЏ РѕР±СЉРµРєС‚Р° "BigBarrier"
             else
             {
                 var random_place = random_generator1.Next(-91, 92);
