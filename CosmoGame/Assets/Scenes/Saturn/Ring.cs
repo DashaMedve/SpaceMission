@@ -7,21 +7,26 @@ using UnityEngine.UI;
 
 public class Ring : MonoBehaviour
 {
-    private GameObject final;
-    private TMP_Text ScoreText;
-    private string str;
-    // Start is called before the first frame update
+    private TMP_Text ScoreText; // Переменная для хранения и вывода текста о количестве собранных объектов "Rings"
+
+    /**
+     * Инициализация переменных класса
+     **/
     void Start()
     {
         ScoreText = GameObject.Find("ScoreRing").GetComponent<TMP_Text>();
     }
 
-    // Update is called once per frame
+    /**
+     * Вызывается при прохождении объекта "Player" через объект "Rings"
+     * 
+     * @param other объект, с которым произошло столкновение
+     **/
     private void OnTriggerEnter(Collider other)
     {
         int score = Convert.ToInt32(ScoreText.text);
-        score += 1;
+        score += 1; // Изменение количества очков
         ScoreText.text = score.ToString();
-        Destroy(this.gameObject);
+        Destroy(this.gameObject); // Разрушение объекта
     }
 }

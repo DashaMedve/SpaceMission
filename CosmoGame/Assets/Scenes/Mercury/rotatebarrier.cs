@@ -4,17 +4,24 @@ using UnityEngine;
 
 public class rotatebarrier : MonoBehaviour
 {
-    private float timer;
+    private float timer; // Время движения объекта
+
+    /**
+     * Инициализация переменных класса
+     **/
     void Start()
     {
         timer = 6f;
     }
 
+    /**
+     * Реализация движения препятствий в сторону объекта "Player"
+     **/
     void Update()
     {
-        timer -= Time.deltaTime;
-        if (timer <= 0)
-            Destroy(gameObject);
-        transform.position -= new Vector3(0, 0, 8f);
+        timer -= Time.deltaTime; // Изменение времени
+        if (timer <= 0) // Время движения объекта закончилось
+            Destroy(gameObject); // Уничтожение объекта
+        transform.position -= new Vector3(0, 0, 8f); // Изменение позиции объекта
     }
 }

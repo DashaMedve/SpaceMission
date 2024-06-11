@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class create : MonoBehaviour
 {
-    private float timer;
-    // Start is called before the first frame update
+    private float timer; // Время движения объекта
+
+    /**
+     * Инициализация переменных класса
+     **/
     void Start()
     {
         timer = 7f;
     }
 
-    // Update is called once per frame
+    /**
+     * Обновление кадра
+     **/
     void Update()
     {
-        timer -= Time.deltaTime;
-        if (timer <= 0)
-            Destroy(gameObject);
-        transform.position -= new Vector3(0, 0, 3f);
+        timer -= Time.deltaTime; // Изменение времени
+        if (timer <= 0) // Время движения объекта закончилось
+            Destroy(gameObject); // Уничтожение объекта
+        transform.position -= new Vector3(0, 0, 3f); // Изменение позиции объекта
     }
 }

@@ -5,18 +5,18 @@ using UnityEngine.UI;
 
 public class Venus : MonoBehaviour
 {
-    public Rigidbody rb;
-    public float runSpeed;
-    public float strafeSpeed;
+    public Rigidbody rb; // Физические свойства объекта "Player"
+    public float runSpeed; // Скорость движения объекта "Player"
+    public float strafeSpeed; // Скорость поворота объекта "Player"
 
-    protected bool strafeLeft;
-    protected bool strafeRight;
-    protected bool forward;
-    protected bool backward;
+    protected bool strafeLeft; // Переменная показывающая нажата ли кнопка, отвечающая за поворот налево объекта "Player"
+    protected bool strafeRight; // Переменная показывающая нажата ли кнопка, отвечающая за поворот направо объекта "Player"
+    protected bool forward; // Переменная показывающая нажата ли кнопка, отвечающая за шаг вперёд объекта "Player"
+    protected bool backward; // Переменная показывающая нажата ли кнопка, отвечающая за шаг назад объекта "Player"
 
-   // Coordinates coordinates = new Coordinates();
-
-    // Start is called before the first frame update
+    /**
+     * Инициализация переменных класса
+     **/
     void Start()
     {
         runSpeed = 100f;
@@ -28,7 +28,10 @@ public class Venus : MonoBehaviour
         backward = false;
     }
 
-    // Update is called once per frame
+    /**
+     * Обновление кадра
+     * Проверки на нажатия кнопок и изменение переменных отвечающих за соответствующие нажатия
+     **/
     void Update()
     {
         if (Input.GetKey("d"))
@@ -52,21 +55,22 @@ public class Venus : MonoBehaviour
             backward = false;
     }
 
+    /**
+     *  Обновление физических параметров
+     **/
     void FixedUpdate()
     {
         if (strafeLeft)
-            rb.transform.Rotate(Vector3.down,  strafeSpeed * Time.deltaTime);
+            rb.transform.Rotate(Vector3.down,  strafeSpeed * Time.deltaTime); // Поворот налево
 
         if (strafeRight)
-            rb.transform.Rotate(Vector3.up, strafeSpeed * Time.deltaTime);
+            rb.transform.Rotate(Vector3.up, strafeSpeed * Time.deltaTime); // Поворот направо
 
         if (backward)
-            rb.AddForce(-rb.transform.forward * runSpeed * Time.deltaTime * 100f, ForceMode.Impulse);
+            rb.AddForce(-rb.transform.forward * runSpeed * Time.deltaTime * 100f, ForceMode.Impulse); // Шаг назад
 
         if (forward)
-        {
-            rb.AddForce(rb.transform.forward*runSpeed* Time.deltaTime*100f, ForceMode.Impulse);
-        }
-        rb.velocity = Vector3.zero;
+            rb.AddForce(rb.transform.forward*runSpeed* Time.deltaTime*100f, ForceMode.Impulse); // Шаг вперёд
+        rb.velocity = Vector3.zero; // Зануление скорости по всем осям
     }
 }
