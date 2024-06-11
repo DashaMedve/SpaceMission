@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -7,10 +7,10 @@ using UnityEngine.UI;
 
 public class Ring : MonoBehaviour
 {
-    private TMP_Text ScoreText; // Переменная для хранения и вывода текста о количестве собранных объектов "Rings"
+    private TMP_Text ScoreText; // РџРµСЂРµРјРµРЅРЅР°СЏ РґР»СЏ С…СЂР°РЅРµРЅРёСЏ Рё РІС‹РІРѕРґР° С‚РµРєСЃС‚Р° Рѕ РєРѕР»РёС‡РµСЃС‚РІРµ СЃРѕР±СЂР°РЅРЅС‹С… РѕР±СЉРµРєС‚РѕРІ "Rings"
 
     /**
-     * Инициализация переменных класса
+     * РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РїРµСЂРµРјРµРЅРЅС‹С… РєР»Р°СЃСЃР°
      **/
     void Start()
     {
@@ -18,15 +18,15 @@ public class Ring : MonoBehaviour
     }
 
     /**
-     * Вызывается при прохождении объекта "Player" через объект "Rings"
+     * Р’С‹Р·С‹РІР°РµС‚СЃСЏ РїСЂРё РїСЂРѕС…РѕР¶РґРµРЅРёРё РѕР±СЉРµРєС‚Р° "Player" С‡РµСЂРµР· РѕР±СЉРµРєС‚ "Rings"
      * 
-     * @param other объект, с которым произошло столкновение
+     * @param other РѕР±СЉРµРєС‚, СЃ РєРѕС‚РѕСЂС‹Рј РїСЂРѕРёР·РѕС€Р»Рѕ СЃС‚РѕР»РєРЅРѕРІРµРЅРёРµ
      **/
     private void OnTriggerEnter(Collider other)
     {
         int score = Convert.ToInt32(ScoreText.text);
-        score += 1; // Изменение количества очков
+        score += 1; // РР·РјРµРЅРµРЅРёРµ РєРѕР»РёС‡РµСЃС‚РІР° РѕС‡РєРѕРІ
         ScoreText.text = score.ToString();
-        Destroy(this.gameObject); // Разрушение объекта
+        Destroy(this.gameObject); // Р Р°Р·СЂСѓС€РµРЅРёРµ РѕР±СЉРµРєС‚Р°
     }
 }

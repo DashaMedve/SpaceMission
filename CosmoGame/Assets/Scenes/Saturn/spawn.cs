@@ -1,4 +1,4 @@
-using System.Collections;
+п»їusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.Progress;
@@ -6,16 +6,16 @@ using System;
 
 public class spawn : MonoBehaviour
 {
-    public GameObject[] enemyPrefab; // Шаблоны объектов для генерации
-    public float timeSpawn; // Интервал времени между созданием объектов
+    public GameObject[] enemyPrefab; // РЁР°Р±Р»РѕРЅС‹ РѕР±СЉРµРєС‚РѕРІ РґР»СЏ РіРµРЅРµСЂР°С†РёРё
+    public float timeSpawn; // РРЅС‚РµСЂРІР°Р» РІСЂРµРјРµРЅРё РјРµР¶РґСѓ СЃРѕР·РґР°РЅРёРµРј РѕР±СЉРµРєС‚РѕРІ
 
-    private bool creat; // Переменная для проверки создались ли звёзды в определённой промежуток времени
-    private GameObject star; // Переменная для хранения звезды
-    private float timer; // Таймер считающий от timeSpawn до 0
-    private System.Random random; // Создание объекта, генерирующего случайные значения
+    private bool creat; // РџРµСЂРµРјРµРЅРЅР°СЏ РґР»СЏ РїСЂРѕРІРµСЂРєРё СЃРѕР·РґР°Р»РёСЃСЊ Р»Рё Р·РІС‘Р·РґС‹ РІ РѕРїСЂРµРґРµР»С‘РЅРЅРѕР№ РїСЂРѕРјРµР¶СѓС‚РѕРє РІСЂРµРјРµРЅРё
+    private GameObject star; // РџРµСЂРµРјРµРЅРЅР°СЏ РґР»СЏ С…СЂР°РЅРµРЅРёСЏ Р·РІРµР·РґС‹
+    private float timer; // РўР°Р№РјРµСЂ СЃС‡РёС‚Р°СЋС‰РёР№ РѕС‚ timeSpawn РґРѕ 0
+    private System.Random random; // РЎРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚Р°, РіРµРЅРµСЂРёСЂСѓСЋС‰РµРіРѕ СЃР»СѓС‡Р°Р№РЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ
 
     /**
-     * Инициализация переменных класса
+     * РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РїРµСЂРµРјРµРЅРЅС‹С… РєР»Р°СЃСЃР°
      **/
     void Start()
     {
@@ -26,42 +26,42 @@ public class spawn : MonoBehaviour
     }
 
     /**
-     * Обновление кадра
+     * РћР±РЅРѕРІР»РµРЅРёРµ РєР°РґСЂР°
      **/
     void Update()
     {
-        timer -= Time.deltaTime; // Изменение значения таймера
+        timer -= Time.deltaTime; // РР·РјРµРЅРµРЅРёРµ Р·РЅР°С‡РµРЅРёСЏ С‚Р°Р№РјРµСЂР°
 
-        Collider Collider; // Создание коллайдера
+        Collider Collider; // РЎРѕР·РґР°РЅРёРµ РєРѕР»Р»Р°Р№РґРµСЂР°
         if (timer <= 2)
         {
             if (!creat)
             {
-                var randomx = random.Next(-150, 150); // Случайная генерация координаты x
-                var randomy = random.Next(-34, 34); // Случайная генерация координаты y
-                star = Instantiate(enemyPrefab[0], transform.position + new Vector3(randomx, randomy, 0), Quaternion.identity); // Создание объекта "Star"
-                star.transform.localScale = new Vector3(5.0f, 5.0f, 5.0f); // Изменение размера объекта "Star"
-                star.AddComponent<Star>(); // Добавление компонента "Star" к объекту "Star"
-                star.AddComponent<BoxCollider>(); // Добавление компонента "BoxCollider" к объекту "Star"
-                star.AddComponent<create>(); // Добавление компонента "create" к объекту "Star"
+                var randomx = random.Next(-150, 150); // РЎР»СѓС‡Р°Р№РЅР°СЏ РіРµРЅРµСЂР°С†РёСЏ РєРѕРѕСЂРґРёРЅР°С‚С‹ x
+                var randomy = random.Next(-34, 34); // РЎР»СѓС‡Р°Р№РЅР°СЏ РіРµРЅРµСЂР°С†РёСЏ РєРѕРѕСЂРґРёРЅР°С‚С‹ y
+                star = Instantiate(enemyPrefab[0], transform.position + new Vector3(randomx, randomy, 0), Quaternion.identity); // РЎРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚Р° "Star"
+                star.transform.localScale = new Vector3(5.0f, 5.0f, 5.0f); // РР·РјРµРЅРµРЅРёРµ СЂР°Р·РјРµСЂР° РѕР±СЉРµРєС‚Р° "Star"
+                star.AddComponent<Star>(); // Р”РѕР±Р°РІР»РµРЅРёРµ РєРѕРјРїРѕРЅРµРЅС‚Р° "Star" Рє РѕР±СЉРµРєС‚Сѓ "Star"
+                star.AddComponent<BoxCollider>(); // Р”РѕР±Р°РІР»РµРЅРёРµ РєРѕРјРїРѕРЅРµРЅС‚Р° "BoxCollider" Рє РѕР±СЉРµРєС‚Сѓ "Star"
+                star.AddComponent<create>(); // Р”РѕР±Р°РІР»РµРЅРёРµ РєРѕРјРїРѕРЅРµРЅС‚Р° "create" Рє РѕР±СЉРµРєС‚Сѓ "Star"
                 Collider = star.GetComponent<BoxCollider>();
-                Collider.isTrigger = true; // Изменение режима коллайдера
+                Collider.isTrigger = true; // РР·РјРµРЅРµРЅРёРµ СЂРµР¶РёРјР° РєРѕР»Р»Р°Р№РґРµСЂР°
                 creat = true;
             }
         }
         if (timer <= 0)
         {
-            timer = timeSpawn; // Запуск таймера сначала
-            var randomx = random.Next(-150, 150); // Случайная генерация координаты x
-            var randomy = random.Next(-34, 34); // Случайная генерация координаты y
-            star = Instantiate(enemyPrefab[1], transform.position + new Vector3(randomx, randomy, 0), Quaternion.identity); // Создание объекта "Rings"
-            star.transform.localScale = new Vector3(10.0f, 10.0f, 10.0f); // Изменение размера объекта "Rings"
-            star.transform.Rotate(-253.5f, 0.6f, 0, 0); // Поворот объекта "Rings"
-            star.AddComponent<Ring>(); // Добавление компонента "Ring" к объекту "Rings"
-            star.AddComponent<BoxCollider>(); // Добавление компонента "BoxCollider" к объекту "Rings"
-            star.AddComponent<create>(); // Добавление компонента "create" к объекту "Rings"
+            timer = timeSpawn; // Р—Р°РїСѓСЃРє С‚Р°Р№РјРµСЂР° СЃРЅР°С‡Р°Р»Р°
+            var randomx = random.Next(-150, 150); // РЎР»СѓС‡Р°Р№РЅР°СЏ РіРµРЅРµСЂР°С†РёСЏ РєРѕРѕСЂРґРёРЅР°С‚С‹ x
+            var randomy = random.Next(-34, 34); // РЎР»СѓС‡Р°Р№РЅР°СЏ РіРµРЅРµСЂР°С†РёСЏ РєРѕРѕСЂРґРёРЅР°С‚С‹ y
+            star = Instantiate(enemyPrefab[1], transform.position + new Vector3(randomx, randomy, 0), Quaternion.identity); // РЎРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚Р° "Rings"
+            star.transform.localScale = new Vector3(10.0f, 10.0f, 10.0f); // РР·РјРµРЅРµРЅРёРµ СЂР°Р·РјРµСЂР° РѕР±СЉРµРєС‚Р° "Rings"
+            star.transform.Rotate(-253.5f, 0.6f, 0, 0); // РџРѕРІРѕСЂРѕС‚ РѕР±СЉРµРєС‚Р° "Rings"
+            star.AddComponent<Ring>(); // Р”РѕР±Р°РІР»РµРЅРёРµ РєРѕРјРїРѕРЅРµРЅС‚Р° "Ring" Рє РѕР±СЉРµРєС‚Сѓ "Rings"
+            star.AddComponent<BoxCollider>(); // Р”РѕР±Р°РІР»РµРЅРёРµ РєРѕРјРїРѕРЅРµРЅС‚Р° "BoxCollider" Рє РѕР±СЉРµРєС‚Сѓ "Rings"
+            star.AddComponent<create>(); // Р”РѕР±Р°РІР»РµРЅРёРµ РєРѕРјРїРѕРЅРµРЅС‚Р° "create" Рє РѕР±СЉРµРєС‚Сѓ "Rings"
             Collider = star.GetComponent<BoxCollider>();
-            Collider.isTrigger = true; // Изменение режима коллайдера
+            Collider.isTrigger = true; // РР·РјРµРЅРµРЅРёРµ СЂРµР¶РёРјР° РєРѕР»Р»Р°Р№РґРµСЂР°
             creat = false;
         }
     }

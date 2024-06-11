@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,19 +6,19 @@ using UnityEngine.UI;
 
 public class Rotatefly : MonoBehaviour
 {
-    public Rigidbody rb; // Физические свойства объекта "Player"
-    public float strafeSpeed; // Скорость движения в стороны объекта "Player"
+    public Rigidbody rb; // Р¤РёР·РёС‡РµСЃРєРёРµ СЃРІРѕР№СЃС‚РІР° РѕР±СЉРµРєС‚Р° "Player"
+    public float strafeSpeed; // РЎРєРѕСЂРѕСЃС‚СЊ РґРІРёР¶РµРЅРёСЏ РІ СЃС‚РѕСЂРѕРЅС‹ РѕР±СЉРµРєС‚Р° "Player"
 
-    protected bool strafeLeft; // Переменная показывающая нажата ли кнопка, отвечающая за поворот налево объекта "Player"
-    protected bool strafeRight; // Переменная показывающая нажата ли кнопка, отвечающая за поворот направо объекта "Player"
-    protected bool up; // Переменная показывающая нажата ли кнопка, отвечающая за подъём объекта "Player"
-    protected bool down; // Переменная показывающая нажата ли кнопка, отвечающая за передвижение объекта "Player" вниз
+    protected bool strafeLeft; // РџРµСЂРµРјРµРЅРЅР°СЏ РїРѕРєР°Р·С‹РІР°СЋС‰Р°СЏ РЅР°Р¶Р°С‚Р° Р»Рё РєРЅРѕРїРєР°, РѕС‚РІРµС‡Р°СЋС‰Р°СЏ Р·Р° РїРѕРІРѕСЂРѕС‚ РЅР°Р»РµРІРѕ РѕР±СЉРµРєС‚Р° "Player"
+    protected bool strafeRight; // РџРµСЂРµРјРµРЅРЅР°СЏ РїРѕРєР°Р·С‹РІР°СЋС‰Р°СЏ РЅР°Р¶Р°С‚Р° Р»Рё РєРЅРѕРїРєР°, РѕС‚РІРµС‡Р°СЋС‰Р°СЏ Р·Р° РїРѕРІРѕСЂРѕС‚ РЅР°РїСЂР°РІРѕ РѕР±СЉРµРєС‚Р° "Player"
+    protected bool up; // РџРµСЂРµРјРµРЅРЅР°СЏ РїРѕРєР°Р·С‹РІР°СЋС‰Р°СЏ РЅР°Р¶Р°С‚Р° Р»Рё РєРЅРѕРїРєР°, РѕС‚РІРµС‡Р°СЋС‰Р°СЏ Р·Р° РїРѕРґСЉС‘Рј РѕР±СЉРµРєС‚Р° "Player"
+    protected bool down; // РџРµСЂРµРјРµРЅРЅР°СЏ РїРѕРєР°Р·С‹РІР°СЋС‰Р°СЏ РЅР°Р¶Р°С‚Р° Р»Рё РєРЅРѕРїРєР°, РѕС‚РІРµС‡Р°СЋС‰Р°СЏ Р·Р° РїРµСЂРµРґРІРёР¶РµРЅРёРµ РѕР±СЉРµРєС‚Р° "Player" РІРЅРёР·
 
     private GameObject final;
     private TMP_Text ScoreText;
 
     /**
-     * Инициализация переменных класса
+     * РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РїРµСЂРµРјРµРЅРЅС‹С… РєР»Р°СЃСЃР°
      **/
     void Start()
     {
@@ -31,8 +31,8 @@ public class Rotatefly : MonoBehaviour
     }
 
     /**
-    * Срабатывает при нажатии кнопки "Вернуться в основное меню"
-    * Открывает сцену меню
+    * РЎСЂР°Р±Р°С‚С‹РІР°РµС‚ РїСЂРё РЅР°Р¶Р°С‚РёРё РєРЅРѕРїРєРё "Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РѕСЃРЅРѕРІРЅРѕРµ РјРµРЅСЋ"
+    * РћС‚РєСЂС‹РІР°РµС‚ СЃС†РµРЅСѓ РјРµРЅСЋ
     **/
     void press()
     {
@@ -40,18 +40,18 @@ public class Rotatefly : MonoBehaviour
     }
 
     /**
-     * Обновление кадра
-     * Проверки на нажатия кнопок и изменение переменных отвечающих за соответствующие нажатия
+     * РћР±РЅРѕРІР»РµРЅРёРµ РєР°РґСЂР°
+     * РџСЂРѕРІРµСЂРєРё РЅР° РЅР°Р¶Р°С‚РёСЏ РєРЅРѕРїРѕРє Рё РёР·РјРµРЅРµРЅРёРµ РїРµСЂРµРјРµРЅРЅС‹С… РѕС‚РІРµС‡Р°СЋС‰РёС… Р·Р° СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РёРµ РЅР°Р¶Р°С‚РёСЏ
      **/
     void Update()
     {
         int score = Convert.ToInt32(ScoreText.text);
-        if (score >= 5) // Если собрано 5 колец, то игра заканчивается и выводится окно с результатами
+        if (score >= 5) // Р•СЃР»Рё СЃРѕР±СЂР°РЅРѕ 5 РєРѕР»РµС†, С‚Рѕ РёРіСЂР° Р·Р°РєР°РЅС‡РёРІР°РµС‚СЃСЏ Рё РІС‹РІРѕРґРёС‚СЃСЏ РѕРєРЅРѕ СЃ СЂРµР·СѓР»СЊС‚Р°С‚Р°РјРё
         {
             Time.timeScale = 0;
             final = GameObject.Find("Player/Canvas/Final");
             final.SetActive(true);
-            GameObject.Find("Player/Canvas/Final/Scr").GetComponent<Text>().text = "Вы собрали: " + GameObject.Find("Player/Canvas/Counter").GetComponent<TMP_Text>().text + " звездочек";
+            GameObject.Find("Player/Canvas/Final/Scr").GetComponent<Text>().text = "Р’С‹ СЃРѕР±СЂР°Р»Рё: " + GameObject.Find("Player/Canvas/Counter").GetComponent<TMP_Text>().text + " Р·РІРµР·РґРѕС‡РµРє";
             GameObject.Find("Player/Canvas/Final/Buttonfin").GetComponent<Button>().onClick.AddListener(press);
         }
         if (Input.GetKey("d"))
@@ -75,21 +75,21 @@ public class Rotatefly : MonoBehaviour
     }
 
     /**
-    *  Обновление физических параметров
+    *  РћР±РЅРѕРІР»РµРЅРёРµ С„РёР·РёС‡РµСЃРєРёС… РїР°СЂР°РјРµС‚СЂРѕРІ
     **/
     void FixedUpdate()
     {
         if (strafeLeft)
-            rb.AddForce(-rb.transform.right * strafeSpeed * Time.deltaTime, ForceMode.Impulse); // Поворот налево
+            rb.AddForce(-rb.transform.right * strafeSpeed * Time.deltaTime, ForceMode.Impulse); // РџРѕРІРѕСЂРѕС‚ РЅР°Р»РµРІРѕ
 
         if (strafeRight)
-            rb.AddForce(rb.transform.right * strafeSpeed * Time.deltaTime, ForceMode.Impulse); // Поворот направо
+            rb.AddForce(rb.transform.right * strafeSpeed * Time.deltaTime, ForceMode.Impulse); // РџРѕРІРѕСЂРѕС‚ РЅР°РїСЂР°РІРѕ
 
         if (up)
-            rb.AddForce(rb.transform.up * strafeSpeed * Time.deltaTime, ForceMode.Impulse); // Движение наверх
+            rb.AddForce(rb.transform.up * strafeSpeed * Time.deltaTime, ForceMode.Impulse); // Р”РІРёР¶РµРЅРёРµ РЅР°РІРµСЂС…
 
         if (down)
-            rb.AddForce(-rb.transform.up * strafeSpeed * Time.deltaTime, ForceMode.Impulse); // Движение вниз
+            rb.AddForce(-rb.transform.up * strafeSpeed * Time.deltaTime, ForceMode.Impulse); // Р”РІРёР¶РµРЅРёРµ РІРЅРёР·
 
         rb.velocity = Vector3.zero;
     }

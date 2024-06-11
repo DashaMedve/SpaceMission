@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -7,10 +7,10 @@ using UnityEngine.UI;
 
 public class Star : MonoBehaviour
 {
-    private TMP_Text ScoreText; // Переменная для вывода количества очков
+    private TMP_Text ScoreText; // РџРµСЂРµРјРµРЅРЅР°СЏ РґР»СЏ РІС‹РІРѕРґР° РєРѕР»РёС‡РµСЃС‚РІР° РѕС‡РєРѕРІ
 
     /**
-     * Инициализация переменных класса
+     * РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РїРµСЂРµРјРµРЅРЅС‹С… РєР»Р°СЃСЃР°
      **/
     private void Start()
     {
@@ -18,21 +18,21 @@ public class Star : MonoBehaviour
     }
 
     /**
-     * Обновление кадра
+     * РћР±РЅРѕРІР»РµРЅРёРµ РєР°РґСЂР°
      **/
     private void Update()
     {
-        this.transform.Rotate(0,4f,0); // Вращение объекта "Star"
+        this.transform.Rotate(0,4f,0); // Р’СЂР°С‰РµРЅРёРµ РѕР±СЉРµРєС‚Р° "Star"
     }
 
     /**
-     * Обработка столкновения "Star" c объектом "Player"
+     * РћР±СЂР°Р±РѕС‚РєР° СЃС‚РѕР»РєРЅРѕРІРµРЅРёСЏ "Star" c РѕР±СЉРµРєС‚РѕРј "Player"
      **/
     private void OnTriggerEnter(Collider other)
     {
         int score = Convert.ToInt32(ScoreText.text);
-        score += 1; // Изменение значение счётчика
+        score += 1; // РР·РјРµРЅРµРЅРёРµ Р·РЅР°С‡РµРЅРёРµ СЃС‡С‘С‚С‡РёРєР°
         ScoreText.text = score.ToString();
-        Destroy(this.gameObject); // Уничтожение объекта "Star"
+        Destroy(this.gameObject); // РЈРЅРёС‡С‚РѕР¶РµРЅРёРµ РѕР±СЉРµРєС‚Р° "Star"
     }
 }

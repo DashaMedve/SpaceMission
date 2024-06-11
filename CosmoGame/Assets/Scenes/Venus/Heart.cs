@@ -1,4 +1,4 @@
-using System.Collections;
+п»їusing System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -8,22 +8,22 @@ using UnityEngine.UI;
 public class Heart : MonoBehaviour
 {
     /**
-     * Обработка столкновения "Heart" c объектом "Player"
+     * РћР±СЂР°Р±РѕС‚РєР° СЃС‚РѕР»РєРЅРѕРІРµРЅРёСЏ "Heart" c РѕР±СЉРµРєС‚РѕРј "Player"
      * 
-     * Вывод результатов и кнопки "Вернуться в основное меню"
+     * Р’С‹РІРѕРґ СЂРµР·СѓР»СЊС‚Р°С‚РѕРІ Рё РєРЅРѕРїРєРё "Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РѕСЃРЅРѕРІРЅРѕРµ РјРµРЅСЋ"
      **/
     void OnCollisionEnter(Collision collision)
     {
-        Time.timeScale = 0; // Пауза
+        Time.timeScale = 0; // РџР°СѓР·Р°
         GameObject.Find("astronout/Canvas/Image").SetActive(true);
         GameObject.Find("astronout/Canvas/Image/ButtonFin").GetComponent<Button>().onClick.AddListener(onpress);
-        GameObject.Find("astronout/Canvas/Image/line2").GetComponent<Text>().text = "Вы собрали: " +
-            GameObject.Find("astronout/Canvas/Counter").GetComponent<TMP_Text>().text + " звездочек";
+        GameObject.Find("astronout/Canvas/Image/line2").GetComponent<Text>().text = "Р’С‹ СЃРѕР±СЂР°Р»Рё: " +
+            GameObject.Find("astronout/Canvas/Counter").GetComponent<TMP_Text>().text + " Р·РІРµР·РґРѕС‡РµРє";
     }
 
     /**
-     * Срабатывает при нажатии кнопки "Вернуться в основное меню"
-     * Открывает сцену меню
+     * РЎСЂР°Р±Р°С‚С‹РІР°РµС‚ РїСЂРё РЅР°Р¶Р°С‚РёРё РєРЅРѕРїРєРё "Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РѕСЃРЅРѕРІРЅРѕРµ РјРµРЅСЋ"
+     * РћС‚РєСЂС‹РІР°РµС‚ СЃС†РµРЅСѓ РјРµРЅСЋ
      **/
     void onpress()
     {

@@ -1,4 +1,4 @@
-using System.Collections;
+п»їusing System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
@@ -6,30 +6,30 @@ using UnityEngine.UIElements;
 
 public class Spawner : MonoBehaviour
 {
-    public Rigidbody rb; // Физические свойства объекта "Spawner"
-    public GameObject enemyPrefab; // Шаблон объекта "Star" для генерации
+    public Rigidbody rb; // Р¤РёР·РёС‡РµСЃРєРёРµ СЃРІРѕР№СЃС‚РІР° РѕР±СЉРµРєС‚Р° "Spawner"
+    public GameObject enemyPrefab; // РЁР°Р±Р»РѕРЅ РѕР±СЉРµРєС‚Р° "Star" РґР»СЏ РіРµРЅРµСЂР°С†РёРё
 
-    private GameObject star; // Переменная для хранения сгенерированного объекта
+    private GameObject star; // РџРµСЂРµРјРµРЅРЅР°СЏ РґР»СЏ С…СЂР°РЅРµРЅРёСЏ СЃРіРµРЅРµСЂРёСЂРѕРІР°РЅРЅРѕРіРѕ РѕР±СЉРµРєС‚Р°
 
     /**
-     * Генерация объектов "Star"
+     * Р“РµРЅРµСЂР°С†РёСЏ РѕР±СЉРµРєС‚РѕРІ "Star"
      **/
     void Start()
     {
-        float step = 50; // Расстояние между объектами "Star"
-        Vector3 pos = transform.position + rb.transform.forward * step; // Вектор сдвига
-        Collider Collider; // Объявление коллайдера
+        float step = 50; // Р Р°СЃСЃС‚РѕСЏРЅРёРµ РјРµР¶РґСѓ РѕР±СЉРµРєС‚Р°РјРё "Star"
+        Vector3 pos = transform.position + rb.transform.forward * step; // Р’РµРєС‚РѕСЂ СЃРґРІРёРіР°
+        Collider Collider; // РћР±СЉСЏРІР»РµРЅРёРµ РєРѕР»Р»Р°Р№РґРµСЂР°
         while (true) {
-            Collider[] intersecting = Physics.OverlapSphere(pos, 25f); // Cоздание сферы для проверки коллизии нового объекта "Star" и стен
+            Collider[] intersecting = Physics.OverlapSphere(pos, 25f); // CРѕР·РґР°РЅРёРµ СЃС„РµСЂС‹ РґР»СЏ РїСЂРѕРІРµСЂРєРё РєРѕР»Р»РёР·РёРё РЅРѕРІРѕРіРѕ РѕР±СЉРµРєС‚Р° "Star" Рё СЃС‚РµРЅ
             if (intersecting.Length == 0)
             {
-                star = Instantiate(enemyPrefab, pos, Quaternion.identity); // Создание объекта "Star"
-                star.transform.localScale = new Vector3(5.0f, 5.0f, 5.0f); // Изменение размера объекта "Star"
-                star.transform.position = star.transform.position + new Vector3(0, 7.0f, 0); // Изменение положения объекта "Star" по оси y
-                star.AddComponent<Star>(); // Добавление компонента "Star" к объекту "Star"
-                star.AddComponent<BoxCollider>(); // Добавление компонента "BoxCollider" к объекту "Star"
+                star = Instantiate(enemyPrefab, pos, Quaternion.identity); // РЎРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚Р° "Star"
+                star.transform.localScale = new Vector3(5.0f, 5.0f, 5.0f); // РР·РјРµРЅРµРЅРёРµ СЂР°Р·РјРµСЂР° РѕР±СЉРµРєС‚Р° "Star"
+                star.transform.position = star.transform.position + new Vector3(0, 7.0f, 0); // РР·РјРµРЅРµРЅРёРµ РїРѕР»РѕР¶РµРЅРёСЏ РѕР±СЉРµРєС‚Р° "Star" РїРѕ РѕСЃРё y
+                star.AddComponent<Star>(); // Р”РѕР±Р°РІР»РµРЅРёРµ РєРѕРјРїРѕРЅРµРЅС‚Р° "Star" Рє РѕР±СЉРµРєС‚Сѓ "Star"
+                star.AddComponent<BoxCollider>(); // Р”РѕР±Р°РІР»РµРЅРёРµ РєРѕРјРїРѕРЅРµРЅС‚Р° "BoxCollider" Рє РѕР±СЉРµРєС‚Сѓ "Star"
                 Collider = star.GetComponent<BoxCollider>();
-                Collider.isTrigger = true; // Изменение режима коллайдера
+                Collider.isTrigger = true; // РР·РјРµРЅРµРЅРёРµ СЂРµР¶РёРјР° РєРѕР»Р»Р°Р№РґРµСЂР°
                 pos += rb.transform.forward * step;
             }
             else

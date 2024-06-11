@@ -1,4 +1,4 @@
-using System.Collections;
+п»їusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -6,12 +6,12 @@ using TMPro;
 
 public class RotateBigBarrier : MonoBehaviour
 {
-    public Rigidbody rb; // // Физические свойства объекта "BigBarrier"
-    private GameObject create; // Переменная для хранения create object
-    private bool state; // Переменная отвечающая за направление объекта "BigBarrier"
+    public Rigidbody rb; // // Р¤РёР·РёС‡РµСЃРєРёРµ СЃРІРѕР№СЃС‚РІР° РѕР±СЉРµРєС‚Р° "BigBarrier"
+    private GameObject create; // РџРµСЂРµРјРµРЅРЅР°СЏ РґР»СЏ С…СЂР°РЅРµРЅРёСЏ create object
+    private bool state; // РџРµСЂРµРјРµРЅРЅР°СЏ РѕС‚РІРµС‡Р°СЋС‰Р°СЏ Р·Р° РЅР°РїСЂР°РІР»РµРЅРёРµ РѕР±СЉРµРєС‚Р° "BigBarrier"
 
     /**
-     * Инициализация переменных класса
+     * РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РїРµСЂРµРјРµРЅРЅС‹С… РєР»Р°СЃСЃР°
      **/
     void Start()
     {
@@ -20,29 +20,29 @@ public class RotateBigBarrier : MonoBehaviour
     }
 
     /**
-     * Обновление кадра
-     * Реализация движения объекта "BigBarrier" в стороны
+     * РћР±РЅРѕРІР»РµРЅРёРµ РєР°РґСЂР°
+     * Р РµР°Р»РёР·Р°С†РёСЏ РґРІРёР¶РµРЅРёСЏ РѕР±СЉРµРєС‚Р° "BigBarrier" РІ СЃС‚РѕСЂРѕРЅС‹
      **/
     void Update()
     {
-        if (state) // Выбор направления движения объекта "BigBarrier"
+        if (state) // Р’С‹Р±РѕСЂ РЅР°РїСЂР°РІР»РµРЅРёСЏ РґРІРёР¶РµРЅРёСЏ РѕР±СЉРµРєС‚Р° "BigBarrier"
         {
             if (transform.position.x - create.transform.position.x < 90)
-                transform.position += new Vector3(1f, 0, 0); // Изменение положения объекта "BigBarrier"
+                transform.position += new Vector3(1f, 0, 0); // РР·РјРµРЅРµРЅРёРµ РїРѕР»РѕР¶РµРЅРёСЏ РѕР±СЉРµРєС‚Р° "BigBarrier"
             else
             {
-                state = false; // Изменение направления движения объекта "BigBarrier"
-                rb.velocity = Vector3.zero; // Зануление вектора скорости по всем осям объекта "BigBarrier"
+                state = false; // РР·РјРµРЅРµРЅРёРµ РЅР°РїСЂР°РІР»РµРЅРёСЏ РґРІРёР¶РµРЅРёСЏ РѕР±СЉРµРєС‚Р° "BigBarrier"
+                rb.velocity = Vector3.zero; // Р—Р°РЅСѓР»РµРЅРёРµ РІРµРєС‚РѕСЂР° СЃРєРѕСЂРѕСЃС‚Рё РїРѕ РІСЃРµРј РѕСЃСЏРј РѕР±СЉРµРєС‚Р° "BigBarrier"
             }
         }
         else
         {
             if (transform.position.x - create.transform.position.x > -90)
-                transform.position -= new Vector3(1f, 0, 0); // Изменение положения объекта "BigBarrier"
+                transform.position -= new Vector3(1f, 0, 0); // РР·РјРµРЅРµРЅРёРµ РїРѕР»РѕР¶РµРЅРёСЏ РѕР±СЉРµРєС‚Р° "BigBarrier"
             else
             {
-                state = true; // Изменение направления движения объекта "BigBarrier"
-                rb.velocity = Vector3.zero; // Зануление вектора скорости по всем осям объекта "BigBarrier"
+                state = true; // РР·РјРµРЅРµРЅРёРµ РЅР°РїСЂР°РІР»РµРЅРёСЏ РґРІРёР¶РµРЅРёСЏ РѕР±СЉРµРєС‚Р° "BigBarrier"
+                rb.velocity = Vector3.zero; // Р—Р°РЅСѓР»РµРЅРёРµ РІРµРєС‚РѕСЂР° СЃРєРѕСЂРѕСЃС‚Рё РїРѕ РІСЃРµРј РѕСЃСЏРј РѕР±СЉРµРєС‚Р° "BigBarrier"
             }
         }
     }

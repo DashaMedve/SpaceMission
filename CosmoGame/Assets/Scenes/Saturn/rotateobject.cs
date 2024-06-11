@@ -1,13 +1,13 @@
-using System.Collections;
+п»їusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class create : MonoBehaviour
 {
-    private float timer; // Время движения объекта
+    private float timer; // Р’СЂРµРјСЏ РґРІРёР¶РµРЅРёСЏ РѕР±СЉРµРєС‚Р°
 
     /**
-     * Инициализация переменных класса
+     * РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РїРµСЂРµРјРµРЅРЅС‹С… РєР»Р°СЃСЃР°
      **/
     void Start()
     {
@@ -15,13 +15,13 @@ public class create : MonoBehaviour
     }
 
     /**
-     * Обновление кадра
+     * РћР±РЅРѕРІР»РµРЅРёРµ РєР°РґСЂР°
      **/
     void Update()
     {
-        timer -= Time.deltaTime; // Изменение времени
-        if (timer <= 0) // Время движения объекта закончилось
-            Destroy(gameObject); // Уничтожение объекта
-        transform.position -= new Vector3(0, 0, 3f); // Изменение позиции объекта
+        timer -= Time.deltaTime; // РР·РјРµРЅРµРЅРёРµ РІСЂРµРјРµРЅРё
+        if (timer <= 0) // Р’СЂРµРјСЏ РґРІРёР¶РµРЅРёСЏ РѕР±СЉРµРєС‚Р° Р·Р°РєРѕРЅС‡РёР»РѕСЃСЊ
+            Destroy(gameObject); // РЈРЅРёС‡С‚РѕР¶РµРЅРёРµ РѕР±СЉРµРєС‚Р°
+        transform.position -= new Vector3(0, 0, 3f); // РР·РјРµРЅРµРЅРёРµ РїРѕР·РёС†РёРё РѕР±СЉРµРєС‚Р°
     }
 }

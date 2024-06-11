@@ -1,21 +1,21 @@
-using System.Collections;
+п»їusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Venus : MonoBehaviour
 {
-    public Rigidbody rb; // Физические свойства объекта "Player"
-    public float runSpeed; // Скорость движения объекта "Player"
-    public float strafeSpeed; // Скорость поворота объекта "Player"
+    public Rigidbody rb; // Р¤РёР·РёС‡РµСЃРєРёРµ СЃРІРѕР№СЃС‚РІР° РѕР±СЉРµРєС‚Р° "Player"
+    public float runSpeed; // РЎРєРѕСЂРѕСЃС‚СЊ РґРІРёР¶РµРЅРёСЏ РѕР±СЉРµРєС‚Р° "Player"
+    public float strafeSpeed; // РЎРєРѕСЂРѕСЃС‚СЊ РїРѕРІРѕСЂРѕС‚Р° РѕР±СЉРµРєС‚Р° "Player"
 
-    protected bool strafeLeft; // Переменная показывающая нажата ли кнопка, отвечающая за поворот налево объекта "Player"
-    protected bool strafeRight; // Переменная показывающая нажата ли кнопка, отвечающая за поворот направо объекта "Player"
-    protected bool forward; // Переменная показывающая нажата ли кнопка, отвечающая за шаг вперёд объекта "Player"
-    protected bool backward; // Переменная показывающая нажата ли кнопка, отвечающая за шаг назад объекта "Player"
+    protected bool strafeLeft; // РџРµСЂРµРјРµРЅРЅР°СЏ РїРѕРєР°Р·С‹РІР°СЋС‰Р°СЏ РЅР°Р¶Р°С‚Р° Р»Рё РєРЅРѕРїРєР°, РѕС‚РІРµС‡Р°СЋС‰Р°СЏ Р·Р° РїРѕРІРѕСЂРѕС‚ РЅР°Р»РµРІРѕ РѕР±СЉРµРєС‚Р° "Player"
+    protected bool strafeRight; // РџРµСЂРµРјРµРЅРЅР°СЏ РїРѕРєР°Р·С‹РІР°СЋС‰Р°СЏ РЅР°Р¶Р°С‚Р° Р»Рё РєРЅРѕРїРєР°, РѕС‚РІРµС‡Р°СЋС‰Р°СЏ Р·Р° РїРѕРІРѕСЂРѕС‚ РЅР°РїСЂР°РІРѕ РѕР±СЉРµРєС‚Р° "Player"
+    protected bool forward; // РџРµСЂРµРјРµРЅРЅР°СЏ РїРѕРєР°Р·С‹РІР°СЋС‰Р°СЏ РЅР°Р¶Р°С‚Р° Р»Рё РєРЅРѕРїРєР°, РѕС‚РІРµС‡Р°СЋС‰Р°СЏ Р·Р° С€Р°Рі РІРїРµСЂС‘Рґ РѕР±СЉРµРєС‚Р° "Player"
+    protected bool backward; // РџРµСЂРµРјРµРЅРЅР°СЏ РїРѕРєР°Р·С‹РІР°СЋС‰Р°СЏ РЅР°Р¶Р°С‚Р° Р»Рё РєРЅРѕРїРєР°, РѕС‚РІРµС‡Р°СЋС‰Р°СЏ Р·Р° С€Р°Рі РЅР°Р·Р°Рґ РѕР±СЉРµРєС‚Р° "Player"
 
     /**
-     * Инициализация переменных класса
+     * РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РїРµСЂРµРјРµРЅРЅС‹С… РєР»Р°СЃСЃР°
      **/
     void Start()
     {
@@ -29,8 +29,8 @@ public class Venus : MonoBehaviour
     }
 
     /**
-     * Обновление кадра
-     * Проверки на нажатия кнопок и изменение переменных отвечающих за соответствующие нажатия
+     * РћР±РЅРѕРІР»РµРЅРёРµ РєР°РґСЂР°
+     * РџСЂРѕРІРµСЂРєРё РЅР° РЅР°Р¶Р°С‚РёСЏ РєРЅРѕРїРѕРє Рё РёР·РјРµРЅРµРЅРёРµ РїРµСЂРµРјРµРЅРЅС‹С… РѕС‚РІРµС‡Р°СЋС‰РёС… Р·Р° СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РёРµ РЅР°Р¶Р°С‚РёСЏ
      **/
     void Update()
     {
@@ -56,21 +56,21 @@ public class Venus : MonoBehaviour
     }
 
     /**
-     *  Обновление физических параметров
+     *  РћР±РЅРѕРІР»РµРЅРёРµ С„РёР·РёС‡РµСЃРєРёС… РїР°СЂР°РјРµС‚СЂРѕРІ
      **/
     void FixedUpdate()
     {
         if (strafeLeft)
-            rb.transform.Rotate(Vector3.down,  strafeSpeed * Time.deltaTime); // Поворот налево
+            rb.transform.Rotate(Vector3.down,  strafeSpeed * Time.deltaTime); // РџРѕРІРѕСЂРѕС‚ РЅР°Р»РµРІРѕ
 
         if (strafeRight)
-            rb.transform.Rotate(Vector3.up, strafeSpeed * Time.deltaTime); // Поворот направо
+            rb.transform.Rotate(Vector3.up, strafeSpeed * Time.deltaTime); // РџРѕРІРѕСЂРѕС‚ РЅР°РїСЂР°РІРѕ
 
         if (backward)
-            rb.AddForce(-rb.transform.forward * runSpeed * Time.deltaTime * 100f, ForceMode.Impulse); // Шаг назад
+            rb.AddForce(-rb.transform.forward * runSpeed * Time.deltaTime * 100f, ForceMode.Impulse); // РЁР°Рі РЅР°Р·Р°Рґ
 
         if (forward)
-            rb.AddForce(rb.transform.forward*runSpeed* Time.deltaTime*100f, ForceMode.Impulse); // Шаг вперёд
-        rb.velocity = Vector3.zero; // Зануление скорости по всем осям
+            rb.AddForce(rb.transform.forward*runSpeed* Time.deltaTime*100f, ForceMode.Impulse); // РЁР°Рі РІРїРµСЂС‘Рґ
+        rb.velocity = Vector3.zero; // Р—Р°РЅСѓР»РµРЅРёРµ СЃРєРѕСЂРѕСЃС‚Рё РїРѕ РІСЃРµРј РѕСЃСЏРј
     }
 }

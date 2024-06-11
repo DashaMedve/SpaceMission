@@ -1,4 +1,4 @@
-using System.Collections;
+п»їusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,17 +8,17 @@ using UnityEngine.SceneManagement;
 
 public class Rotate : MonoBehaviour
 {
-    public Rigidbody rb; // Физические свойства объекта "Player"
-    public float JumpForce; // Сила прыжка объекта "Player"
+    public Rigidbody rb; // Р¤РёР·РёС‡РµСЃРєРёРµ СЃРІРѕР№СЃС‚РІР° РѕР±СЉРµРєС‚Р° "Player"
+    public float JumpForce; // РЎРёР»Р° РїСЂС‹Р¶РєР° РѕР±СЉРµРєС‚Р° "Player"
 
-    private bool jump; // Переменная, отвечающая за прыжок объекта "Player". True, если кнопка "space" нажата 
-    private int state; // Номер полосы, на которой находится объект "Player"
-    private TMP_Text KmText; // Переменная для хранения и вывода текста о количестве пройденных километров объектом "Player"
-    private bool isGrounded; // Переменная, в которой хранится положение объекта "Player" (если объект находится на поверхности планеты - true, если в прыжке - false)
-    private Queue<int> queue = new Queue<int>(); // Очередь для хранения команд пользователя (нажатие кнопок)
+    private bool jump; // РџРµСЂРµРјРµРЅРЅР°СЏ, РѕС‚РІРµС‡Р°СЋС‰Р°СЏ Р·Р° РїСЂС‹Р¶РѕРє РѕР±СЉРµРєС‚Р° "Player". True, РµСЃР»Рё РєРЅРѕРїРєР° "space" РЅР°Р¶Р°С‚Р° 
+    private int state; // РќРѕРјРµСЂ РїРѕР»РѕСЃС‹, РЅР° РєРѕС‚РѕСЂРѕР№ РЅР°С…РѕРґРёС‚СЃСЏ РѕР±СЉРµРєС‚ "Player"
+    private TMP_Text KmText; // РџРµСЂРµРјРµРЅРЅР°СЏ РґР»СЏ С…СЂР°РЅРµРЅРёСЏ Рё РІС‹РІРѕРґР° С‚РµРєСЃС‚Р° Рѕ РєРѕР»РёС‡РµСЃС‚РІРµ РїСЂРѕР№РґРµРЅРЅС‹С… РєРёР»РѕРјРµС‚СЂРѕРІ РѕР±СЉРµРєС‚РѕРј "Player"
+    private bool isGrounded; // РџРµСЂРµРјРµРЅРЅР°СЏ, РІ РєРѕС‚РѕСЂРѕР№ С…СЂР°РЅРёС‚СЃСЏ РїРѕР»РѕР¶РµРЅРёРµ РѕР±СЉРµРєС‚Р° "Player" (РµСЃР»Рё РѕР±СЉРµРєС‚ РЅР°С…РѕРґРёС‚СЃСЏ РЅР° РїРѕРІРµСЂС…РЅРѕСЃС‚Рё РїР»Р°РЅРµС‚С‹ - true, РµСЃР»Рё РІ РїСЂС‹Р¶РєРµ - false)
+    private Queue<int> queue = new Queue<int>(); // РћС‡РµСЂРµРґСЊ РґР»СЏ С…СЂР°РЅРµРЅРёСЏ РєРѕРјР°РЅРґ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ (РЅР°Р¶Р°С‚РёРµ РєРЅРѕРїРѕРє)
    
     /**
-     * Инициализация переменных класса
+     * РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РїРµСЂРµРјРµРЅРЅС‹С… РєР»Р°СЃСЃР°
      **/
     private void Start()
     {
@@ -26,52 +26,52 @@ public class Rotate : MonoBehaviour
         JumpForce = 1000f;
         jump = false;
         isGrounded = true;
-        Time.timeScale = 1; // Активация игры
-        KmText = GameObject.Find("Player/Canvas/Km").GetComponent<TMP_Text>(); // Нахождение элемента текста о количестве пройденных километров
+        Time.timeScale = 1; // РђРєС‚РёРІР°С†РёСЏ РёРіСЂС‹
+        KmText = GameObject.Find("Player/Canvas/Km").GetComponent<TMP_Text>(); // РќР°С…РѕР¶РґРµРЅРёРµ СЌР»РµРјРµРЅС‚Р° С‚РµРєСЃС‚Р° Рѕ РєРѕР»РёС‡РµСЃС‚РІРµ РїСЂРѕР№РґРµРЅРЅС‹С… РєРёР»РѕРјРµС‚СЂРѕРІ
     }
 
     /**
-     * Функция для плавного перемещения объекта "Player" с одной полосы на другую
+     * Р¤СѓРЅРєС†РёСЏ РґР»СЏ РїР»Р°РІРЅРѕРіРѕ РїРµСЂРµРјРµС‰РµРЅРёСЏ РѕР±СЉРµРєС‚Р° "Player" СЃ РѕРґРЅРѕР№ РїРѕР»РѕСЃС‹ РЅР° РґСЂСѓРіСѓСЋ
      * 
-     * @param target - точка, к которой нужно двигаться объекту "Player"
-     * @param delta - время, за которое нужно передвинуться объекту "Player" в точку target
+     * @param target - С‚РѕС‡РєР°, Рє РєРѕС‚РѕСЂРѕР№ РЅСѓР¶РЅРѕ РґРІРёРіР°С‚СЊСЃСЏ РѕР±СЉРµРєС‚Сѓ "Player"
+     * @param delta - РІСЂРµРјСЏ, Р·Р° РєРѕС‚РѕСЂРѕРµ РЅСѓР¶РЅРѕ РїРµСЂРµРґРІРёРЅСѓС‚СЊСЃСЏ РѕР±СЉРµРєС‚Сѓ "Player" РІ С‚РѕС‡РєСѓ target
      **/
     IEnumerator SmoothMove(Vector3 target, float delta)
     {
-        float closeEnough = 0.2f; // Погрешность расстояния между target и объектом "Player"
-        float distance = (rb.transform.position - target).magnitude; // Расчёт расстояния, которое нужно пройти с использованием магнитуды
+        float closeEnough = 0.2f; // РџРѕРіСЂРµС€РЅРѕСЃС‚СЊ СЂР°СЃСЃС‚РѕСЏРЅРёСЏ РјРµР¶РґСѓ target Рё РѕР±СЉРµРєС‚РѕРј "Player"
+        float distance = (rb.transform.position - target).magnitude; // Р Р°СЃС‡С‘С‚ СЂР°СЃСЃС‚РѕСЏРЅРёСЏ, РєРѕС‚РѕСЂРѕРµ РЅСѓР¶РЅРѕ РїСЂРѕР№С‚Рё СЃ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµРј РјР°РіРЅРёС‚СѓРґС‹
 
-        while (distance >= closeEnough) // Пока объект не достиг "Player" target
+        while (distance >= closeEnough) // РџРѕРєР° РѕР±СЉРµРєС‚ РЅРµ РґРѕСЃС‚РёРі "Player" target
         {
-            transform.position = Vector3.Lerp(new Vector3(rb.transform.position.x, rb.transform.position.y, rb.transform.position.z), target, delta); // Плавное перемещение объекта
-            yield return StartCoroutine(SmoothMove(target, delta)); // Вызов данной функции для следующего кадра
-            distance = (rb.transform.position - target).magnitude; // Расчёт расстояния, которое нужно пройти с использованием магнитуды
+            transform.position = Vector3.Lerp(new Vector3(rb.transform.position.x, rb.transform.position.y, rb.transform.position.z), target, delta); // РџР»Р°РІРЅРѕРµ РїРµСЂРµРјРµС‰РµРЅРёРµ РѕР±СЉРµРєС‚Р°
+            yield return StartCoroutine(SmoothMove(target, delta)); // Р’С‹Р·РѕРІ РґР°РЅРЅРѕР№ С„СѓРЅРєС†РёРё РґР»СЏ СЃР»РµРґСѓСЋС‰РµРіРѕ РєР°РґСЂР°
+            distance = (rb.transform.position - target).magnitude; // Р Р°СЃС‡С‘С‚ СЂР°СЃСЃС‚РѕСЏРЅРёСЏ, РєРѕС‚РѕСЂРѕРµ РЅСѓР¶РЅРѕ РїСЂРѕР№С‚Рё СЃ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµРј РјР°РіРЅРёС‚СѓРґС‹
         }
-        rb.transform.position = target; // Перемещение объекта "Player" в позицию target
+        rb.transform.position = target; // РџРµСЂРµРјРµС‰РµРЅРёРµ РѕР±СЉРµРєС‚Р° "Player" РІ РїРѕР·РёС†РёСЋ target
     }
 
     /**
-     * Перемещение объекта в одну из сторон
+     * РџРµСЂРµРјРµС‰РµРЅРёРµ РѕР±СЉРµРєС‚Р° РІ РѕРґРЅСѓ РёР· СЃС‚РѕСЂРѕРЅ
      * 
-     * @param - направление движения объекта "Player"
+     * @param - РЅР°РїСЂР°РІР»РµРЅРёРµ РґРІРёР¶РµРЅРёСЏ РѕР±СЉРµРєС‚Р° "Player"
      **/
     void Clicked(bool direction)
     {
-        // Объявление и инициализация вектора перемещения
+        // РћР±СЉСЏРІР»РµРЅРёРµ Рё РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РІРµРєС‚РѕСЂР° РїРµСЂРµРјРµС‰РµРЅРёСЏ
         Vector3 relativeLocation;
         if (direction)
             relativeLocation = new Vector3(-97, 0, 0);
         else
             relativeLocation = new Vector3(97, 0, 0);
 
-        Vector3 targetLocation = new Vector3(rb.transform.position.x, rb.transform.position.y, rb.transform.position.z) + relativeLocation; // Вычисление новой позиции объекта "Player"
-        float timeDelta = 0.4f; // Время, за которое нужно передвинуться объекту "Player" в точку targetLocation
-        this.StartCoroutine(SmoothMove(targetLocation, timeDelta)); // Вызов функции реализующей перемещение
+        Vector3 targetLocation = new Vector3(rb.transform.position.x, rb.transform.position.y, rb.transform.position.z) + relativeLocation; // Р’С‹С‡РёСЃР»РµРЅРёРµ РЅРѕРІРѕР№ РїРѕР·РёС†РёРё РѕР±СЉРµРєС‚Р° "Player"
+        float timeDelta = 0.4f; // Р’СЂРµРјСЏ, Р·Р° РєРѕС‚РѕСЂРѕРµ РЅСѓР¶РЅРѕ РїРµСЂРµРґРІРёРЅСѓС‚СЊСЃСЏ РѕР±СЉРµРєС‚Сѓ "Player" РІ С‚РѕС‡РєСѓ targetLocation
+        this.StartCoroutine(SmoothMove(targetLocation, timeDelta)); // Р’С‹Р·РѕРІ С„СѓРЅРєС†РёРё СЂРµР°Р»РёР·СѓСЋС‰РµР№ РїРµСЂРµРјРµС‰РµРЅРёРµ
     }
 
     /**
-     * Срабатывает при нажатии кнопки "Начать сначала"
-     * Запускает игру заново
+     * РЎСЂР°Р±Р°С‚С‹РІР°РµС‚ РїСЂРё РЅР°Р¶Р°С‚РёРё РєРЅРѕРїРєРё "РќР°С‡Р°С‚СЊ СЃРЅР°С‡Р°Р»Р°"
+     * Р—Р°РїСѓСЃРєР°РµС‚ РёРіСЂСѓ Р·Р°РЅРѕРІРѕ
      **/
     void press_die()
     {
@@ -80,8 +80,8 @@ public class Rotate : MonoBehaviour
     }
 
     /**
-     * Срабатывает при нажатии кнопки "Вернуться в основное меню"
-     * Открывает сцену меню
+     * РЎСЂР°Р±Р°С‚С‹РІР°РµС‚ РїСЂРё РЅР°Р¶Р°С‚РёРё РєРЅРѕРїРєРё "Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РѕСЃРЅРѕРІРЅРѕРµ РјРµРЅСЋ"
+     * РћС‚РєСЂС‹РІР°РµС‚ СЃС†РµРЅСѓ РјРµРЅСЋ
      **/
     void press_exit()
     {
@@ -90,41 +90,41 @@ public class Rotate : MonoBehaviour
     }
 
     /**
-     * Обновление кадра
+     * РћР±РЅРѕРІР»РµРЅРёРµ РєР°РґСЂР°
      **/
     void Update()
     {
-        // Изменение количества пройденных километров
+        // РР·РјРµРЅРµРЅРёРµ РєРѕР»РёС‡РµСЃС‚РІР° РїСЂРѕР№РґРµРЅРЅС‹С… РєРёР»РѕРјРµС‚СЂРѕРІ
         double score = double.Parse(KmText.text);
         score += 1; 
         KmText.text = score.ToString();
 
-        if (score >= 10000) // Проверка количества пройденных километров
+        if (score >= 10000) // РџСЂРѕРІРµСЂРєР° РєРѕР»РёС‡РµСЃС‚РІР° РїСЂРѕР№РґРµРЅРЅС‹С… РєРёР»РѕРјРµС‚СЂРѕРІ
         {
-            // Вывод результатов игры
-            Time.timeScale = 0; // Пауза
+            // Р’С‹РІРѕРґ СЂРµР·СѓР»СЊС‚Р°С‚РѕРІ РёРіСЂС‹
+            Time.timeScale = 0; // РџР°СѓР·Р°
             GameObject.Find("Player/Canvas/Final").SetActive(true);
-            GameObject.Find("Player/Canvas/Final/line2").GetComponent<TMP_Text>().text = "Вы собрали " + 
-                GameObject.Find("Player/Canvas/Counter").GetComponent<TMP_Text>().text + " звездочек";
+            GameObject.Find("Player/Canvas/Final/line2").GetComponent<TMP_Text>().text = "Р’С‹ СЃРѕР±СЂР°Р»Рё " + 
+                GameObject.Find("Player/Canvas/Counter").GetComponent<TMP_Text>().text + " Р·РІРµР·РґРѕС‡РµРє";
             GameObject.Find("Player/Canvas/Final/ButtonFinal").GetComponent<Button>().onClick.AddListener(press_exit);
         }
 
-        if (Input.GetKeyDown("space")) // Обновление переменной, отвечающей за прыжок объекта "Player", если произошло нажатие кнопки
+        if (Input.GetKeyDown("space")) // РћР±РЅРѕРІР»РµРЅРёРµ РїРµСЂРµРјРµРЅРЅРѕР№, РѕС‚РІРµС‡Р°СЋС‰РµР№ Р·Р° РїСЂС‹Р¶РѕРє РѕР±СЉРµРєС‚Р° "Player", РµСЃР»Рё РїСЂРѕРёР·РѕС€Р»Рѕ РЅР°Р¶Р°С‚РёРµ РєРЅРѕРїРєРё
             jump = true;
 
-        if (Input.GetKeyDown("d")) // Проверка нажатия кнопки движения направо. В случае нажатия - добавление в очередь
+        if (Input.GetKeyDown("d")) // РџСЂРѕРІРµСЂРєР° РЅР°Р¶Р°С‚РёСЏ РєРЅРѕРїРєРё РґРІРёР¶РµРЅРёСЏ РЅР°РїСЂР°РІРѕ. Р’ СЃР»СѓС‡Р°Рµ РЅР°Р¶Р°С‚РёСЏ - РґРѕР±Р°РІР»РµРЅРёРµ РІ РѕС‡РµСЂРµРґСЊ
             queue.Enqueue(0);
   
-        if (Input.GetKeyDown("a")) // Проверка нажатия кнопки движения налево. В случае нажатия - добавление в очередь
+        if (Input.GetKeyDown("a")) // РџСЂРѕРІРµСЂРєР° РЅР°Р¶Р°С‚РёСЏ РєРЅРѕРїРєРё РґРІРёР¶РµРЅРёСЏ РЅР°Р»РµРІРѕ. Р’ СЃР»СѓС‡Р°Рµ РЅР°Р¶Р°С‚РёСЏ - РґРѕР±Р°РІР»РµРЅРёРµ РІ РѕС‡РµСЂРµРґСЊ
             queue.Enqueue(1);
     }
 
     /**
-     *  Обновление физических параметров
+     *  РћР±РЅРѕРІР»РµРЅРёРµ С„РёР·РёС‡РµСЃРєРёС… РїР°СЂР°РјРµС‚СЂРѕРІ
      **/
     void FixedUpdate()
     {
-        // Если очередь не пустая, то объект передвигается на другую полосу
+        // Р•СЃР»Рё РѕС‡РµСЂРµРґСЊ РЅРµ РїСѓСЃС‚Р°СЏ, С‚Рѕ РѕР±СЉРµРєС‚ РїРµСЂРµРґРІРёРіР°РµС‚СЃСЏ РЅР° РґСЂСѓРіСѓСЋ РїРѕР»РѕСЃСѓ
         if (queue.Count > 0)
         {
             int direct = queue.Dequeue();
@@ -133,7 +133,7 @@ public class Rotate : MonoBehaviour
                 if (state != 2)
                 {
                     state+=1;
-                    Clicked(false); // Передвижение объекта "Player" вправо
+                    Clicked(false); // РџРµСЂРµРґРІРёР¶РµРЅРёРµ РѕР±СЉРµРєС‚Р° "Player" РІРїСЂР°РІРѕ
                 }
             }
             else
@@ -141,18 +141,18 @@ public class Rotate : MonoBehaviour
                 if (state != 0)
                 {
                     state-=1;
-                    Clicked(true); // Передвижение объекта "Player" влево
+                    Clicked(true); // РџРµСЂРµРґРІРёР¶РµРЅРёРµ РѕР±СЉРµРєС‚Р° "Player" РІР»РµРІРѕ
                 }
             }
-            rb.velocity = Vector3.zero; // Зануление скорости по всем осям
+            rb.velocity = Vector3.zero; // Р—Р°РЅСѓР»РµРЅРёРµ СЃРєРѕСЂРѕСЃС‚Рё РїРѕ РІСЃРµРј РѕСЃСЏРј
         }
         
-        // Совершение прыжка, в случае, если кнопка была нажата и объект "Player" находится на планете 
+        // РЎРѕРІРµСЂС€РµРЅРёРµ РїСЂС‹Р¶РєР°, РІ СЃР»СѓС‡Р°Рµ, РµСЃР»Рё РєРЅРѕРїРєР° Р±С‹Р»Р° РЅР°Р¶Р°С‚Р° Рё РѕР±СЉРµРєС‚ "Player" РЅР°С…РѕРґРёС‚СЃСЏ РЅР° РїР»Р°РЅРµС‚Рµ 
         if (jump)
         {
             if (isGrounded)
             {
-                rb.velocity = new Vector3(0, 80, 0); // Перемещение объекта "Player" наверх
+                rb.velocity = new Vector3(0, 80, 0); // РџРµСЂРµРјРµС‰РµРЅРёРµ РѕР±СЉРµРєС‚Р° "Player" РЅР°РІРµСЂС…
                 jump = false;
                 isGrounded = false;
             }
@@ -160,12 +160,12 @@ public class Rotate : MonoBehaviour
     }
 
     /**
-     * Проверка: коллизия произошла с поверхностью планеты или нет.
-     * Изменение значения переменной isGrounded
+     * РџСЂРѕРІРµСЂРєР°: РєРѕР»Р»РёР·РёСЏ РїСЂРѕРёР·РѕС€Р»Р° СЃ РїРѕРІРµСЂС…РЅРѕСЃС‚СЊСЋ РїР»Р°РЅРµС‚С‹ РёР»Рё РЅРµС‚.
+     * РР·РјРµРЅРµРЅРёРµ Р·РЅР°С‡РµРЅРёСЏ РїРµСЂРµРјРµРЅРЅРѕР№ isGrounded
      * 
-     * @param collision - объект, с которым произошло столкновение
-     * @param value - значение, присваиваемое переменной isGrounded
-     * @return true, если коллизия произошла с поверхностью планеты, false иначе
+     * @param collision - РѕР±СЉРµРєС‚, СЃ РєРѕС‚РѕСЂС‹Рј РїСЂРѕРёР·РѕС€Р»Рѕ СЃС‚РѕР»РєРЅРѕРІРµРЅРёРµ
+     * @param value - Р·РЅР°С‡РµРЅРёРµ, РїСЂРёСЃРІР°РёРІР°РµРјРѕРµ РїРµСЂРµРјРµРЅРЅРѕР№ isGrounded
+     * @return true, РµСЃР»Рё РєРѕР»Р»РёР·РёСЏ РїСЂРѕРёР·РѕС€Р»Р° СЃ РїРѕРІРµСЂС…РЅРѕСЃС‚СЊСЋ РїР»Р°РЅРµС‚С‹, false РёРЅР°С‡Рµ
      **/
     private bool IsGroundedUpate(Collision collision, bool value)
     {
@@ -178,28 +178,28 @@ public class Rotate : MonoBehaviour
     }
 
     /**
-     * Вызывается при столкновении объекта "Player" с барьером
+     * Р’С‹Р·С‹РІР°РµС‚СЃСЏ РїСЂРё СЃС‚РѕР»РєРЅРѕРІРµРЅРёРё РѕР±СЉРµРєС‚Р° "Player" СЃ Р±Р°СЂСЊРµСЂРѕРј
      * 
-     * @param collision объект, с которым произошло столкновение
+     * @param collision РѕР±СЉРµРєС‚, СЃ РєРѕС‚РѕСЂС‹Рј РїСЂРѕРёР·РѕС€Р»Рѕ СЃС‚РѕР»РєРЅРѕРІРµРЅРёРµ
      **/
     void OnCollisionEnter(Collision collision)
     {
         bool check = IsGroundedUpate(collision, true);
-        if (!check) // Если коллизия не с поверхностью планеты, то выводится окно с кнопкой "Начать сначала"
+        if (!check) // Р•СЃР»Рё РєРѕР»Р»РёР·РёСЏ РЅРµ СЃ РїРѕРІРµСЂС…РЅРѕСЃС‚СЊСЋ РїР»Р°РЅРµС‚С‹, С‚Рѕ РІС‹РІРѕРґРёС‚СЃСЏ РѕРєРЅРѕ СЃ РєРЅРѕРїРєРѕР№ "РќР°С‡Р°С‚СЊ СЃРЅР°С‡Р°Р»Р°"
         {
-            Time.timeScale = 0; // Пауза
+            Time.timeScale = 0; // РџР°СѓР·Р°
             GameObject.Find("Player/Canvas/Die").SetActive(true);
             GameObject.Find("Player/Canvas/Die/ButtonRest").GetComponent<Button>().onClick.AddListener(press_die);
         }
     }
 
     /**
-     * Обработка коллизии в момент отрыва от поверхности планеты
+     * РћР±СЂР°Р±РѕС‚РєР° РєРѕР»Р»РёР·РёРё РІ РјРѕРјРµРЅС‚ РѕС‚СЂС‹РІР° РѕС‚ РїРѕРІРµСЂС…РЅРѕСЃС‚Рё РїР»Р°РЅРµС‚С‹
      * 
-     * @param collision объект от которого оттолкнулся "Player"
+     * @param collision РѕР±СЉРµРєС‚ РѕС‚ РєРѕС‚РѕСЂРѕРіРѕ РѕС‚С‚РѕР»РєРЅСѓР»СЃСЏ "Player"
      **/
     void OnCollisionExit(Collision collision)
     {
-        IsGroundedUpate(collision, false); // Указываем, что объект не на поверхность планеты
+        IsGroundedUpate(collision, false); // РЈРєР°Р·С‹РІР°РµРј, С‡С‚Рѕ РѕР±СЉРµРєС‚ РЅРµ РЅР° РїРѕРІРµСЂС…РЅРѕСЃС‚СЊ РїР»Р°РЅРµС‚С‹
     }
 }
