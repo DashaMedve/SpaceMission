@@ -20,7 +20,6 @@ public class Star : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         int score = Convert.ToInt32(ScoreText.text);
-        Console.WriteLine(score);
         score += 1;
         ScoreText.text = score.ToString();
         Destroy(this.gameObject);
