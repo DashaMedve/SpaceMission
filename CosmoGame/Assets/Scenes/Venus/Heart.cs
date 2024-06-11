@@ -15,9 +15,9 @@ public class Heart : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         Time.timeScale = 0; // Пауза
-        GameObject.Find("astronout/Canvas/Image").SetActive(true);
-        GameObject.Find("astronout/Canvas/Image/ButtonFin").GetComponent<Button>().onClick.AddListener(onpress);
-        GameObject.Find("astronout/Canvas/Image/line2").GetComponent<Text>().text = "Вы собрали: " +
+        GameObject.Find("astronout/Canvas/End").SetActive(true);
+        GameObject.Find("astronout/Canvas/End/ButtonFin").GetComponent<Button>().onClick.AddListener(onpress);
+        GameObject.Find("astronout/Canvas/End/line2").GetComponent<Text>().text = "Вы собрали: " +
             GameObject.Find("astronout/Canvas/Counter").GetComponent<TMP_Text>().text + " звездочек";
     }
 
@@ -27,7 +27,7 @@ public class Heart : MonoBehaviour
      **/
     void onpress()
     {
-        GameObject.Find("astronout/Canvas/Image").SetActive(false);
+        GameObject.Find("astronout/Canvas/End").SetActive(false);
         SceneManager.LoadScene(0);
     }
 }

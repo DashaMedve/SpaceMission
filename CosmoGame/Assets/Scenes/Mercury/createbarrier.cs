@@ -90,9 +90,9 @@ public class createbarrier : MonoBehaviour
             // Генерация трёх объектов Downbarrier
             if (random == 0)
             {
-                Instantiate(enemyPrefab[0], transform.position + new Vector3(0, -8, 0), Quaternion.identity);
-                Instantiate(enemyPrefab[0], transform.position + new Vector3(91, -8, 0), Quaternion.identity);
-                Instantiate(enemyPrefab[0], transform.position - new Vector3(91, 8, 0), Quaternion.identity);
+                Instantiate(enemyPrefab[0], transform.position + new Vector3(0, -1, 0), Quaternion.identity);
+                Instantiate(enemyPrefab[0], transform.position + new Vector3(91, -1, 0), Quaternion.identity);
+                Instantiate(enemyPrefab[0], transform.position - new Vector3(91, 1, 0), Quaternion.identity);
             }
 
             else if (random == 1)

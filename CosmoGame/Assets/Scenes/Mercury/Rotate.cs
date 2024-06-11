@@ -26,8 +26,18 @@ public class Rotate : MonoBehaviour
         JumpForce = 1000f;
         jump = false;
         isGrounded = true;
-        Time.timeScale = 1; // Активация игры
         KmText = GameObject.Find("Player/Canvas/Km").GetComponent<TMP_Text>(); // Нахождение элемента текста о количестве пройденных километров
+        Time.timeScale = 0;
+        GameObject.Find("Player/Canvas/Start/ButtonStart").GetComponent<Button>().onClick.AddListener(press_start);
+    }
+
+    /**
+     * Запуск игры
+     **/
+    void press_start()
+    {
+        GameObject.Find("Player/Canvas/Start").SetActive(false);
+        Time.timeScale = 1;
     }
 
     /**

@@ -22,7 +22,8 @@ public class Rotatefly : MonoBehaviour
      **/
     void Start()
     {
-        Time.timeScale = 1;
+        Time.timeScale = 0;
+        GameObject.Find("Player/Canvas/Start/Buttonstart").GetComponent<Button>().onClick.AddListener(press_start);
         strafeSpeed = 7500f;
         strafeLeft = false;
         strafeRight = false;
@@ -37,6 +38,15 @@ public class Rotatefly : MonoBehaviour
     void press()
     {
         SceneManager.LoadScene(0);
+    }
+
+    /**
+     * Запуск игры
+     **/
+    void press_start()
+    {
+        GameObject.Find("Player/Canvas/Start").SetActive(false);
+        Time.timeScale = 1;
     }
 
     /**

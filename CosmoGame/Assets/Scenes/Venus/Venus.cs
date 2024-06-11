@@ -21,13 +21,22 @@ public class Venus : MonoBehaviour
     {
         runSpeed = 100f;
         strafeSpeed = 100f;
-
+        Time.timeScale = 0;
+        GameObject.Find("Player/astronout/Canvas/Start/ButtonStart").GetComponent<Button>().onClick.AddListener(press_start);
         strafeLeft = false;
         strafeRight = false;
         forward = false;
         backward = false;
     }
 
+    /**
+     * Запуск игры
+     **/
+    private void press_start()
+    {
+        GameObject.Find("Player/astronout/Canvas/Start").SetActive(false);
+        Time.timeScale = 1;
+    }
     /**
      * Обновление кадра
      * Проверки на нажатия кнопок и изменение переменных отвечающих за соответствующие нажатия
