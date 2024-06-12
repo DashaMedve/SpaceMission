@@ -12,6 +12,6 @@ public class Spacecraft : MonoBehaviour {
     void Update() {}
 
     void OnMouseDown() {
-        Debug.Log("Fly to the Space");
+        Debug.Log("Полетели в космос!");
     }
 }

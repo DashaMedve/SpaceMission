@@ -13,16 +13,16 @@ public class ItemDisplayManager : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-        itemsToFind.Add("Core");
-        itemsToFind.Add("Engine");
-        itemsToFind.Add("Plasma");
-        itemsToFind.Add("Thruster");
-        itemsToFind.Add("Weapon_1");
-        itemsToFind.Add("Weapon_2");
-        itemsToFind.Add("Wing_1");
-        itemsToFind.Add("Wing_2");
-        itemsToFind.Add("Wing_3");
-        itemsToFind.Add("Wing_4");
+        itemsToFind.Add("Ядро");
+        itemsToFind.Add("Двигатель");
+        itemsToFind.Add("Плазма");
+        itemsToFind.Add("Маневровый двигатель");
+        itemsToFind.Add("Оружие_1");
+        itemsToFind.Add("Оружие_2");
+        itemsToFind.Add("Крыло_1");
+        itemsToFind.Add("Крыло_2");
+        itemsToFind.Add("Крыло_3");
+        itemsToFind.Add("Крыло_4");
         panel.SetActive(isPannelVisible);
         spacecraft.SetActive(isSpacecraftlVisible);
         UpdateItemList();
@@ -41,19 +41,19 @@ public class ItemDisplayManager : MonoBehaviour {
     }
 
     private void UpdateItemList() {
-        itemListText.text = "Items to find:\n";
+        itemListText.text = "Найдите компоненты:\n";
         foreach (string item in itemsToFind) {
             itemListText.text += "- " + item + "\n";
         }
     }
 
     private void ThisIsWin() {
-        itemListText.text = "Great!\n";
-        itemListText.text += "Now you need\n";
-        itemListText.text += "to find the\n";
-        itemListText.text += "spacecraft that\n";
-        itemListText.text += "you've already\n";
-        itemListText.text += "created!";
+        itemListText.text = "Отлично!\n";
+        itemListText.text += "Теперь вам нужно\n";
+        itemListText.text += "найти только что\n";
+        itemListText.text += "построенный вами\n";
+        itemListText.text += "космический\n";
+        itemListText.text += "корабль!";
     }
 
     public void ItemCollected(string itemName) {

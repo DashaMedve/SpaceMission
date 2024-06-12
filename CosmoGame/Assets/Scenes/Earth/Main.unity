@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465788, g: 0.49641287, b: 0.5748173, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2456,7 +2455,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5454589110726511007, guid: 5fcee70427c45b0479f21b97546e2dc2, type: 3}
       propertyPath: m_Name
-      value: Weapon_2
+      value: "\u041E\u0440\u0443\u0436\u0438\u0435_2"
       objectReference: {fileID: 0}
     - target: {fileID: 6922426283463153713, guid: 5fcee70427c45b0479f21b97546e2dc2, type: 3}
       propertyPath: m_RootOrder
@@ -3220,7 +3219,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7167827344822873296, guid: 747c4056d416c6d43a299c4473100fed, type: 3}
       propertyPath: m_Name
-      value: Engine
+      value: "\u0414\u0432\u0438\u0433\u0430\u0442\u0435\u043B\u044C"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3499,7 +3498,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8832806770582232484, guid: bb0dcfc33256099499beab1781b0d40a, type: 3}
       propertyPath: m_Name
-      value: Weapon_1
+      value: "\u041E\u0440\u0443\u0436\u0438\u0435_1"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3723,7 +3722,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6416986605985248688, guid: ead3ebac099823941bb3128d6fd11249, type: 3}
       propertyPath: m_Name
-      value: Wing_2
+      value: "\u041A\u0440\u044B\u043B\u043E_2"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3861,7 +3860,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8590008098860150426, guid: f3f694fddb9ec5649ba658551ea3d4d1, type: 3}
       propertyPath: m_Name
-      value: Wing_3
+      value: "\u041A\u0440\u044B\u043B\u043E_3"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4487,7 +4486,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 54780950711007872, guid: d020278fb783dd043828dd2b012bf982, type: 3}
       propertyPath: m_Name
-      value: Wing_4
+      value: "\u041A\u0440\u044B\u043B\u043E_4"
       objectReference: {fileID: 0}
     - target: {fileID: 6373879913268952886, guid: d020278fb783dd043828dd2b012bf982, type: 3}
       propertyPath: m_RootOrder
@@ -6715,7 +6714,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1569578758679851562, guid: 76fb7025f7e56934580f6fcb647b40b5, type: 3}
       propertyPath: m_Name
-      value: Plasma
+      value: "\u041F\u043B\u0430\u0437\u043C\u0430"
       objectReference: {fileID: 0}
     - target: {fileID: 2285636409661267383, guid: 76fb7025f7e56934580f6fcb647b40b5, type: 3}
       propertyPath: m_RootOrder
@@ -8655,7 +8654,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f07ce8ac9928483288493ca4000c40b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  new_color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!64 &1339343946
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10333,14 +10331,14 @@ RectTransform:
   m_GameObject: {fileID: 1698612823}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 3, z: 4}
+  m_LocalScale: {x: 5, y: 3, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2059114220}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 917, y: -306}
+  m_AnchoredPosition: {x: 450, y: -306}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1699537639
@@ -15850,7 +15848,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1914036996557407430, guid: 30e7e44d738e12b4d90219afe4380ab9, type: 3}
       propertyPath: m_Name
-      value: Wing_1
+      value: "\u041A\u0440\u044B\u043B\u043E_1"
       objectReference: {fileID: 0}
     - target: {fileID: 2251878841470732623, guid: 30e7e44d738e12b4d90219afe4380ab9, type: 3}
       propertyPath: m_RootOrder
@@ -16339,7 +16337,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6087286215247842251, guid: 81904476cad566346b1f6a2cc9299080, type: 3}
       propertyPath: m_Name
-      value: Thruster
+      value: "\u041C\u0430\u043D\u0435\u0432\u0440\u043E\u0432\u044B\u0439 \u0434\u0432\u0438\u0433\u0430\u0442\u0435\u043B\u044C"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16999,7 +16997,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5719336304748905690, guid: 7e94bae2054e32b4e8b58927770cd38a, type: 3}
       propertyPath: m_Name
-      value: Core
+      value: "\u042F\u0434\u0440\u043E"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17892,7 +17890,7 @@ RectTransform:
   m_GameObject: {fileID: 2059114219}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.27232802, y: 1.0133889, z: 0.53038}
+  m_LocalScale: {x: 0.5, y: 1.0133889, z: 0.53038}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1698612826}

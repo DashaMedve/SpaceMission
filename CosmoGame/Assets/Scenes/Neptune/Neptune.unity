@@ -417,7 +417,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6000210319279019913, guid: 31aa6cf450a4e574c90b70b1a0956b64, type: 3}
       propertyPath: m_Name
-      value: Weapon_2
+      value: "\u041E\u0440\u0443\u0436\u0438\u0435_2"
       objectReference: {fileID: 0}
     - target: {fileID: 6046728429103923842, guid: 31aa6cf450a4e574c90b70b1a0956b64, type: 3}
       propertyPath: m_LocalPosition.x
@@ -914,7 +914,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7579681544014736148, guid: fc1e403e37b5ae548b15cdd380872add, type: 3}
       propertyPath: m_Name
-      value: Plasma
+      value: "\u041F\u043B\u0430\u0437\u043C\u0430"
       objectReference: {fileID: 0}
     - target: {fileID: 9087401500410120499, guid: fc1e403e37b5ae548b15cdd380872add, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1103,7 +1103,7 @@ RectTransform:
   m_GameObject: {fileID: 842050798}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.27232802, y: 1.0133889, z: 0.53038}
+  m_LocalScale: {x: 0.5, y: 1.0133889, z: 0.53038}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1620624513}
@@ -6057,7 +6057,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3534476542289209205, guid: afb93ddaccfbd6141afb3deef8a939b0, type: 3}
       propertyPath: m_Name
-      value: Wing_2
+      value: "\u041A\u0440\u044B\u043B\u043E_2"
       objectReference: {fileID: 0}
     - target: {fileID: 7721187776056547870, guid: afb93ddaccfbd6141afb3deef8a939b0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6298,7 +6298,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2988946495113880393, guid: 770c4fb620a67934b82ff9b0b40d6b1c, type: 3}
       propertyPath: m_Name
-      value: Core
+      value: "\u042F\u0434\u0440\u043E"
       objectReference: {fileID: 0}
     - target: {fileID: 6408799057105656294, guid: 770c4fb620a67934b82ff9b0b40d6b1c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6441,7 +6441,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2017638463300396401, guid: 39fba92b9e33b8a4390aa4dc3c4a1e33, type: 3}
       propertyPath: m_Name
-      value: Wing_3
+      value: "\u041A\u0440\u044B\u043B\u043E_3"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6913,7 +6913,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3574793126136476563, guid: 5f3938bb01fb242429e34fc5cbb778c2, type: 3}
       propertyPath: m_Name
-      value: Wing_1
+      value: "\u041A\u0440\u044B\u043B\u043E_1"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7016,7 +7016,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6107999292778874229, guid: a6a6af29cffcf0a43a453e9f37aa31b9, type: 3}
       propertyPath: m_Name
-      value: Thruster
+      value: "\u041C\u0430\u043D\u0435\u0432\u0440\u043E\u0432\u044B\u0439 \u0434\u0432\u0438\u0433\u0430\u0442\u0435\u043B\u044C"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7079,7 +7079,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7501543890178726708, guid: 701cb8f0119339046ab8fec0da6ab170, type: 3}
       propertyPath: m_Name
-      value: Weapon_1
+      value: "\u041E\u0440\u0443\u0436\u0438\u0435_1"
       objectReference: {fileID: 0}
     - target: {fileID: 8561472115463576946, guid: 701cb8f0119339046ab8fec0da6ab170, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7252,14 +7252,14 @@ RectTransform:
   m_GameObject: {fileID: 1620624512}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 3, z: 4}
+  m_LocalScale: {x: 5, y: 3, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 842050799}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 917, y: -306}
+  m_AnchoredPosition: {x: 450, y: -306}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1620624514
@@ -7354,7 +7354,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8983269575015610845, guid: d568972c37affbf4a82d29b6e5c5a9f7, type: 3}
       propertyPath: m_Name
-      value: Wing_4
+      value: "\u041A\u0440\u044B\u043B\u043E_4"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7620,7 +7620,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4197959850446288160, guid: 46fcbb4a40b09014ab111ea8aabc1171, type: 3}
       propertyPath: m_Name
-      value: Engine
+      value: "\u0414\u0432\u0438\u0433\u0430\u0442\u0435\u043B\u044C"
       objectReference: {fileID: 0}
     - target: {fileID: 5971328331531979741, guid: 46fcbb4a40b09014ab111ea8aabc1171, type: 3}
       propertyPath: m_LocalPosition.x

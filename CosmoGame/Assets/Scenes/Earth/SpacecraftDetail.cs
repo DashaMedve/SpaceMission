@@ -20,7 +20,7 @@ public class SpacecraftDetail : MonoBehaviour {
         string itemName = GetComponent<Collider>().gameObject.name;
         itemDisplayManager.ItemCollected(itemName);
         Destroy(gameObject);
-        Debug.Log("Item collected: " + itemName);
+        Debug.Log("Собрали деталь: " + itemName);
     }
 
     void OnMouseEnter() {

@@ -4,53 +4,5 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/Menu/Start_Menu.unity
-    guid: 4fce2fffc26b37f46becbb3b021f73c8
-  - enabled: 1
-    path: Assets/Scenes/Space/Space.unity
-    guid: 026a48442fd8300439ef00a4a4a0df21
-  - enabled: 0
-    path: Assets/Scenes/Menu/Settings/Settings.unity
-    guid: 4b4a741118696c24596531ff4e725935
-  - enabled: 0
-    path: Assets/Scenes/Menu/Help/Help.unity
-    guid: b48282b055183ab4992aea5fa6429daf
-  - enabled: 1
-    path: Assets/Scenes/Mars/Mars.unity
-    guid: 2be2d7bd9245365429d7f395efe3cf67
-  - enabled: 1
-    path: Assets/Scenes/Venus/Venus.unity
-    guid: 406f3c8ea38525d4fa04404a1178f2aa
-  - enabled: 1
-    path: Assets/Scenes/Earth/Main.unity
-    guid: 8f01cdf683b314a53bf3c2ed96568c21
-  - enabled: 0
-    path: Assets/Scenes/Rules/MercuryRules.unity
-    guid: e3d268d2523b2774db1541bf9b0c8199
-  - enabled: 0
-    path: Assets/Scenes/Rules/VenusRules.unity
-    guid: bdf9ee4b34bf992428ec352164ffb531
-  - enabled: 1
-    path: Assets/Scenes/Rules/EarthRules.unity
-    guid: 6fed61e16af5ffe4881fb928a7cd23f8
-  - enabled: 1
-    path: Assets/Scenes/Rules/Letter.unity
-    guid: 01da36a0b3b9dff43aa11c345a9ab833
-  - enabled: 1
-    path: Assets/Scenes/Rules/MarsRules.unity
-    guid: a23b758ea4ba93345b2ca511083338a0
-  - enabled: 1
-    path: Assets/Scenes/Jupiter/Jupiter.unity
-    guid: 5dd0d0ab3eefa7c4089e218287898843
-  - enabled: 1
-    path: Assets/Scenes/Rules/JupiterRules.unity
-    guid: be0d3f8db42a80145ac6d1558b5fc43b
-  - enabled: 1
-    path: Assets/Scenes/Mercury/Mercury.unity
-    guid: 70e1c09d81b82f040a43319f3823f5bd
-  - enabled: 1
-    path: Assets/Scenes/Saturn/Saturn.unity
-    guid: 81165f60bbad1ee418126eb29e428b15
+  m_Scenes: []
   m_configObjects: {}
