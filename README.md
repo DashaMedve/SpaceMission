@@ -61,3 +61,7 @@
   другим цветом. При нажатии на неё деталь исчезает из базы и из списка ещё не найденных предметов. 
   ![image](https://github.com/DashaMedve/SpaceMission/assets/145752056/eaa3c7b9-d61f-4369-a4ef-7cb35b693eea)
 
+  Ответственные за сцены: Глущенко Арина - Space, Mars, Jupiter
+                          Гоенко Алина - Mercury, Venus, Saturn
+			  Медведева Дарья - Earth, Uranus, Neptune
+
