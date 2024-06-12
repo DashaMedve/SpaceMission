@@ -28,6 +28,6 @@ public class Heart : MonoBehaviour
     void onpress()
     {
         GameObject.Find("astronout/Canvas/End").SetActive(false);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Space");
     }
 }

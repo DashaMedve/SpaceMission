@@ -5,18 +5,19 @@ using UnityEngine.SceneManagement; // Для перезагрузки сцены
 
 public class AstronautScript : MonoBehaviour
 {
-    [SerializeField] private float speed = 3f;
-    private bool isGameOver = false;
+    [SerializeField] private float speed = 3f; // Скорость движения астронавта
+    private bool isGameOver = false; // Флаг для проверки окончания игры
     private float minX, maxX, minY, maxY; // Границы экрана
     private float elapsedTime = 0f; // Прошедшее время
     private int score = 0; // Очки
 
+    // Прямоугольники для UI элементов
     private Rect gameOverRect;
     private Rect finalScoreRect;
     private Rect restartButtonRect;
     private Rect exitButtonRect;
     private Rect scoreTextRect;
-    private GUIStyle guiStyle;
+    private GUIStyle guiStyle; 
 
     void Start()
     {
@@ -28,31 +29,35 @@ public class AstronautScript : MonoBehaviour
         minY = lowerLeft.y;
         maxY = upperRight.y;
 
-        // Устанавливаем прямоугольники для UI элементов на одном уровне по оси X
+        // Устанавливаем прямоугольники для UI элементов
         float centerX = Screen.width / 2;
         float centerY = Screen.height / 2;
         gameOverRect = new Rect(centerX - 150, centerY - 100, 300, 50);
         finalScoreRect = new Rect(centerX - 150, centerY - 40, 300, 50);
         restartButtonRect = new Rect(centerX - 75, centerY + 20, 150, 50);
         exitButtonRect = new Rect(centerX - 75, centerY + 80, 150, 50);
-        scoreTextRect = new Rect(centerX - 150, 10, 300, 50); // Увеличенное окошко для счета
+        scoreTextRect = new Rect(centerX - 150, 10, 300, 50);
 
         // Настраиваем стиль GUI
         guiStyle = new GUIStyle();
-        guiStyle.fontSize = 36; // Увеличенный шрифт
+        guiStyle.fontSize = 36; // Шшрифт
         guiStyle.normal.textColor = Color.white;
-        guiStyle.alignment = TextAnchor.MiddleCenter; // Выровненный текст по центру
+        guiStyle.alignment = TextAnchor.MiddleCenter;
     }
 
     void Update()
     {
+        // Если игра не окончена
         if (!isGameOver)
         {
+            // Получаем позицию мыши и преобразуем её в игровые координаты
             var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePos.z = transform.position.z;
+
+            // Ограничиваем позицию астронавта в пределах экрана
             transform.position = ClampPosition(mousePos);
 
-            // Пример обновления очков
+            // Обновляем очки на основе прошедшего времени
             elapsedTime += Time.deltaTime;
             score = Mathf.FloorToInt(elapsedTime);
         }
@@ -60,20 +65,25 @@ public class AstronautScript : MonoBehaviour
 
     void OnGUI()
     {
+        // Если игра не окончена
         if (!isGameOver)
         {
+            // Отображаем текущий счет
             GUI.Label(scoreTextRect, "Score: " + score, guiStyle);
         }
         else
         {
+            // Отображаем сообщение об окончании игры и финальный счет
             GUI.Box(gameOverRect, "Game Over", guiStyle);
             GUI.Label(finalScoreRect, "Final Score: " + score, guiStyle);
 
+            // Кнопка для перезапуска игры
             if (GUI.Button(restartButtonRect, "Restart", guiStyle))
             {
                 RestartGame();
             }
 
+            // Кнопка для выхода в "Space"
             if (GUI.Button(exitButtonRect, "Exit", guiStyle))
             {
                 ExitToSpace();
@@ -91,12 +101,13 @@ public class AstronautScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // Проверяем столкновение с объектом, имеющим тег "Enemy"
         if (collision.gameObject.CompareTag("Enemy"))
         {
             // Останавливаем движение персонажа
             isGameOver = true;
 
-            // Останавливаем объекты при столкновении
+            // Останавливаем все объекты при столкновении
             Rigidbody2D[] rigidbodies = FindObjectsOfType<Rigidbody2D>();
             foreach (Rigidbody2D rb in rigidbodies)
             {
@@ -112,7 +123,7 @@ public class AstronautScript : MonoBehaviour
     // Метод для перезагрузки сцены
     public void RestartGame()
     {
-        // Перезапуск сцены
+        // Перезапуск текущей сцены
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
         // Возобновляем время игры

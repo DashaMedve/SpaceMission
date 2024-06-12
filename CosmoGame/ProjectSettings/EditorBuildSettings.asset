@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Venus/Venus.unity
     guid: 406f3c8ea38525d4fa04404a1178f2aa
   - enabled: 1
-    path: Assets/Scenes/Earth/Main.unity
+    path: Assets/Scenes/Earth/Earth/Main.unity
     guid: 8f01cdf683b314a53bf3c2ed96568c21
   - enabled: 0
     path: Assets/Scenes/Rules/MercuryRules.unity
@@ -53,4 +53,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Saturn/Saturn.unity
     guid: 81165f60bbad1ee418126eb29e428b15
+  - enabled: 1
+    path: Assets/Scenes/Uranus/Uranus/Uranus.unity
+    guid: 4a5c39fefff4e487fa86839cd0ee51bf
+  - enabled: 1
+    path: Assets/Scenes/Rules/UranusRules.unity
+    guid: c172383fde8f6ad479a681ee13ab6c1a
+  - enabled: 1
+    path: Assets/Scenes/Rules/NeptunRules.unity
+    guid: f7cc09140860f134ba54111b2446b04b
+  - enabled: 1
+    path: Assets/Scenes/Neptune/Neptune/Neptune.unity
+    guid: 5dd8a98d2a4004cd69ad1f7b3554555f
   m_configObjects: {}

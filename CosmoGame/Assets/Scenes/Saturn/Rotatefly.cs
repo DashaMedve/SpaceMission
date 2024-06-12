@@ -37,7 +37,7 @@ public class Rotatefly : MonoBehaviour
     **/
     void press()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Space");
     }
 
     /**

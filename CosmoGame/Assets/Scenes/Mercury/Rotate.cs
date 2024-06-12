@@ -22,6 +22,7 @@ public class Rotate : MonoBehaviour
      **/
     private void Start()
     {
+        Physics.gravity = new Vector3(0, -60f, 0); //Изменение гравитации
         state = 1;
         JumpForce = 1000f;
         jump = false;
@@ -86,6 +87,7 @@ public class Rotate : MonoBehaviour
     void press_die()
     {
         GameObject.Find("Player/Canvas/Die").SetActive(false);
+        Physics.gravity = new Vector3(0, 0, 0); //Изменение гравитации
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -96,7 +98,8 @@ public class Rotate : MonoBehaviour
     void press_exit()
     {
         GameObject.Find("Player/Canvas/Final").SetActive(false);
-        SceneManager.LoadScene(0);
+        Physics.gravity = new Vector3(0, 0f, 0); //Изменение гравитации
+        SceneManager.LoadScene("Space");
     }
 
     /**
